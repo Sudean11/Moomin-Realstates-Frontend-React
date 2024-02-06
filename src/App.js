@@ -5,6 +5,7 @@ import BackToTopButton from "./components/common/BackToTopButton";
 import Footer from "./components/common/Footer";
 import Navbar from "./components/common/Navbar";
 
+
 import { closeDropdown } from "./features/uiSlice";
 import Dropdown from "./components/common/DropDown";
 import NewsLetter from "./components/common/NewsLetter";
@@ -36,6 +37,8 @@ function App() {
 
   return (
     <div>
+      
+      
       {showLoader && <Loader />}
       <Navbar />
       <Dropdown />

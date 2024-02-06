@@ -9,7 +9,7 @@ export const navLinks = [
   {
     id: 2,
     linkText: "Property",
-    url: "/property-5",
+    url: "/property",
    
   },
  

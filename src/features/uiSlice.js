@@ -44,9 +44,9 @@ const uiSlice = createSlice({
     closeFilterMenu: (state) => {
       state.isFilterMenuOpen = false;
     },
-    toggleDarkMode: (state) => {
-      state.darkMode = !state.darkMode;
-    },
+    // toggleDarkMode: (state) => {
+    //   state.darkMode = !state.darkMode;
+    // },
   },
 });
 
@@ -63,5 +63,5 @@ export const {
   toggleSidebar,
   openFilterMenu,
   closeFilterMenu,
-  toggleDarkMode,
+  // toggleDarkMode,
 } = uiSlice.actions;

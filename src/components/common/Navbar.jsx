@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useState } from "react";
-import { FiDelete, FiMoon, FiSun } from "react-icons/fi";
+import {  useState } from "react";
+import { FiDelete } from "react-icons/fi";
 import { BiSearch, BiMenu, BiUser, BiBuildingHouse } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, NavLink, useNavigate } from "react-router-dom";
@@ -9,7 +9,7 @@ import {
   closeDropdown,
   closeSidebar,
   openSidebar,
-  toggleDarkMode,
+  // toggleDarkMode,
   uiStore,
 } from "../../features/uiSlice";
 import { navLinks } from "../../data/navLinks";
@@ -17,23 +17,24 @@ import SingleLink from "./SingleLink";
 
 const Navbar = () => {
   const rootDoc = document.querySelector(":root");
-  const { darkMode, isSidebarOpen } = useSelector(uiStore);
+  // const { darkMode, isSidebarOpen } = useSelector(uiStore);
+  const { isSidebarOpen } = useSelector(uiStore);
   const [showSearchBar, setShowSearchBar] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   // Dark mode toggle
-  const handleDarkMode = () => {
-    dispatch(toggleDarkMode());
-  };
+  // const handleDarkMode = () => {
+  //   dispatch(toggleDarkMode());
+  // };
 
   // Store darkmode value to localStorage;
-  useEffect(() => {
-    if (darkMode) rootDoc.classList.add("dark");
-    else rootDoc.classList.remove("dark");
-    localStorage.setItem("Martvilla-theme-mode", JSON.stringify(darkMode));
-  }, [darkMode]);
+  // useEffect(() => {
+  //   if (darkMode) rootDoc.classList.add("dark");
+  //   else rootDoc.classList.remove("dark");
+  //   localStorage.setItem("Martvilla-theme-mode", JSON.stringify(darkMode));
+  // }, [darkMode]);
 
   const handleClose = (e) => {
     if (!e.target.classList.contains("link")) {
@@ -57,7 +58,7 @@ const Navbar = () => {
     >
       <Link to="/" className="flex-shrink-0 flex-align-center gap-x-1">
         <BiBuildingHouse className="text-3xl text-primary" />
-        <h1 className="hidden md:block">MartVilla</h1>
+        <h1 className="hidden md:block">Moomin Home</h1>
       </Link>
 
       <div className="flex-align-center gap-x-4">
@@ -151,12 +152,12 @@ const Navbar = () => {
           </form>
 
           {/*----------------------------- Dark mode toggle-------------------------------------------------- */}
-          <div
+          {/* <div
             className="bg-white shadow-md icon-box dark:bg-dark-light hover:shadow-lg hover:bg-transparent"
             onClick={handleDarkMode}
           >
             {darkMode ? <FiSun /> : <FiMoon />}
-          </div>
+          </div> */}
           {/*----------------------------- Profile Icon-------------------------------------------------- */}
           <div className="bg-white shadow-md icon-box dark:bg-dark-light hover:shadow-lg hover:bg-transparent">
             <BiUser />

@@ -16,7 +16,7 @@ const PageRoutes = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/property" element={<Property />} />
-        <Route path ="/propertyDetail"element ={<PropertyDetail/>} />
+        <Route path ="/propertyDetail/:id"element ={<PropertyDetail/>} />
         <Route path="/login" element={<Login/>} />
         <Route path="/signup" element={ <Signup/>} />
         <Route path="/add-property" element={<AddProperty />} />

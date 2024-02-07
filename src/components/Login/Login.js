@@ -10,13 +10,14 @@ const Login = () => {
     const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
-
+    const userId=1;
     const handleSubmit = (e) => {
         e.preventDefault();
 
         const user = { userName, password };
         // Implementation to authenticate the user and navigate
     };
+    localStorage.setItem("userId", userId);
 
     return (
         <div className="page-container">

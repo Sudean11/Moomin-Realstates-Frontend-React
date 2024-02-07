@@ -33,7 +33,6 @@ const HeadeFilters = ({ layout, setLayout }) => {
             <FiFilter />
           </div>
         </div>
-        <p>Showing 01 - 08 of 28 resuts</p>
       </div>
       <div className="w-full gap-4 flex-center-between">
         <select

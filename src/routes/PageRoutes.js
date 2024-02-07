@@ -21,7 +21,6 @@ const PageRoutes = () => {
         <Route path="/signup" element={ <Signup/>} />
         <Route path="/add-property" element={<AddProperty />} />
         <Route path="/Admin-dashboard" element ={ <AdminDashboard/>}/>
-       
       </Routes>
     </>
   );

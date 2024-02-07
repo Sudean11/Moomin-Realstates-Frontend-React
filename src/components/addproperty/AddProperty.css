@@ -1,0 +1,44 @@
+
+
+.custom-input {
+  height: 40px; /* or any specific height you want */
+  border: 2px solid #c0c0dc; /* Bootstrap's default border color */
+  /* Add other styles if necessary */
+  display: flex;
+  min-height: 1vh;
+  flex-direction: column;
+  justify-content: center;
+  flex: 2px;
+}
+
+.login-title {
+  color: #502502; /* Adjusted to a lighter blue for more vibrancy */
+  text-align: center;
+  margin-bottom: 30px; /* Increased space between title and the first input field */
+  font-size: 55px; /* Increased font size for more prominence */
+  font-weight: bold;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  box-sizing: border-box;
+  align-items: center;
+
+ 
+}
+
+.row {
+  flex: 1;
+}
+
+
+.navbar {
+  z-index: 1030; /* Bootstrap default for navbar */
+}
+

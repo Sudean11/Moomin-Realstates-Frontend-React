@@ -59,7 +59,7 @@ const ProductDetails = ({
           <div id="slider" className='w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth'>
             {
               pictures.map((image, index) => (
-                 index!= activeImageIndex && <img key={index} src={image} alt={`Image ${index + 1}`} onClick={() => handleImageClick(index)} className="w-[220px] h-[100px] p-2 inline-block cursor-pointer hover:scale-105 ease-in-out rounded-lg" />
+                 index!== activeImageIndex && <img key={index} src={image} alt={`Image ${index + 1}`} onClick={() => handleImageClick(index)} className="w-[220px] h-[100px] p-2 inline-block cursor-pointer hover:scale-105 ease-in-out rounded-lg" />
               ))
             }
           </div>

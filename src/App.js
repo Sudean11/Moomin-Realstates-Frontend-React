@@ -4,12 +4,21 @@ import { useLocation } from "react-router-dom";
 import BackToTopButton from "./components/common/BackToTopButton";
 import Footer from "./components/common/Footer";
 import Navbar from "./components/common/Navbar";
+import "./App.css"
+
 
 import { closeDropdown } from "./features/uiSlice"; 
 import Dropdown from "./components/common/DropDown";
 import NewsLetter from "./components/common/NewsLetter";
 import Loader from "./components/common/Loader";
 import PageRoutes from "./routes/PageRoutes";
+import Login from "./components/Login/Login.js";
+
+import Header from "./components/adminpage/Header.jsx"
+import Sidebar from "./components/adminpage/Sidebar.jsx"
+import Home from "./components/adminpage/Home.jsx";
+import AdminDashboard from "./components/adminpage/AdminDashboard.js";
+
 function App() {
   const [showButton, setShowButton] = useState(false);
   const [showLoader, setShowLoader] = useState(false);
@@ -34,9 +43,13 @@ function App() {
     setShowLoader(false);
   });
 
+ 
+
+
   return (
     <div>
-      {showLoader && <Loader />}
+      <PageRoutes/>
+      {/* {showLoader && <Loader />}
       <Navbar />
       <Dropdown />
       <div
@@ -52,7 +65,7 @@ function App() {
           <Footer />
         </div>
       </div>
-      <BackToTopButton showButton={showButton} />
+      <BackToTopButton showButton={showButton} /> */}
     </div>
   );
 }

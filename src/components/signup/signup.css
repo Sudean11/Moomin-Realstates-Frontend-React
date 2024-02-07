@@ -1,0 +1,204 @@
+
+.toggle-btn {
+  padding: 8px 16px; /* Smaller padding for a more compact button */
+  font-size: 14px; /* Smaller font size */
+  border-radius: 20px; /* Rounded corners for toggle effect */
+  border: 1px solid #FF6E40; /* Border color to match your design */
+  background-color: #ffffff; /* Default background */
+  color: #FF6E40; /* Text color to match your design */
+  margin: 0; /* Reset margin */
+  flex-grow: 0; /* Prevent the button from growing */
+}
+
+.signup-box .signup-title {
+    color: #502502; /* Adjusted to a lighter blue for more vibrancy */
+    text-align: center;
+    margin-bottom: 25px; /* Increased space between title and the first input field */
+    font-size: 60px; /* Increased font size for more prominence */
+    font-weight: bold;
+}
+
+  
+  /* Styles for form elements: labels and input fields */
+  .signup-box label {
+    font-weight: bold;
+    display: block;
+   
+  }
+  
+  .signup-box input[type="text"],
+  .signup-box input[type="password"],
+  .signup-box input[type="tel"],
+  .signup-box input[type="email"] {
+    width: 100%;
+    padding:5px;
+    margin-bottom:  1px;
+    border: 1px solid #807777;
+    border-radius: 4px;
+    /* box-sizing: border-box; */ /* To ensure padding doesn't increase the box size */
+  }
+  
+  /* Styles for the sign-in button */
+  .signup-box button {
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(222, 85, 35);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+ 
+  
+  /* Style for displaying validation feedback */
+  .signup-box .invalid-feedback {
+    color: red;
+    font-size: 0.8rem;
+    margin-top: -15px;
+    margin-bottom: 10px;
+    display: none; /* Initially hide it */
+  }
+  
+  /* You might want to add a class to your input fields to show this feedback when needed */
+  .signup-box .form-control.invalid + .invalid-feedback {
+    display: block; /* Show only when the input is invalid */
+  }
+
+  .page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 120px); /* Adjust 60px according to your NavBar's height */
+    margin-top: 110px; /* Push the container down by the NavBar's height */
+  }
+  
+  .signup-box {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    box-sizing: border-box;
+
+   
+  }
+
+  .signup-logo {
+    /* Add styles for your logo */
+    display: block; /* Treat the img element as a block for better control */
+    max-width: 450px; /* Adjust as necessary */
+    max-height: 450px; /* Adjust as necessary */
+    /* Align it properly with the signup box */
+}
+
+.combined-container {
+    display: flex;
+    align-items: center; /* This ensures vertical alignment */
+    background: #FFFFFF; /* Adjust the color as needed */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* This adds the shadow effect */
+    border-radius: 8px; /* This adds the rounded corners */
+    /* ... other styles like padding, etc. ... */
+}
+
+.signup-links {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.forgot-password-link,
+.signup-link {
+    margin-bottom: 10px; /* Add space between the links */
+    color: gray; /* Style the link color to match your design */
+    
+}
+
+.forgot-password-link:hover,
+.signup-link:hover {
+    text-decoration: underline; /* Adds an underline on hover for better user interaction */
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    align-items: center;/* Center children horizontally */
+    max-width: 450px; /* Adjust as necessary */
+}
+
+.home-page-link {
+    color: gray; /* Style to match your design */
+    font-size: 0.9rem; /* Smaller font size */
+    text-decoration: none; /* Optional: removes the underline from links */
+    margin-top: 25px;
+    margin-right: 40px; /* Space between the logo and the link */
+    align-items: center;
+}
+
+.home-page-link:hover {
+    text-decoration: underline; /* Adds an underline on hover */
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin: 0 10px; /* Adds spacing between fields */
+}
+
+.mb-3 {
+  margin-bottom: 9px; /* Adjusted spacing */
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.justify-content-around {
+  justify-content: space-around;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.btn-primary.active, .btn-outline-primary.active {
+  font-weight: bold; /* Makes text bolder for active button */
+  opacity: 1; /* Ensures active button is fully opaque */
+  padding: 5px 10px;
+}
+
+.btn-outline-primary {
+  background-color: #ffffff;
+  color: #007bff;
+  border: 1px solid #007bff;
+  opacity: 0.6; 
+  padding: 5px 10px;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  padding: 5px 10px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 500px) {
+  .row {
+      flex-direction: column;
+  }
+
+  .form-group {
+      margin: 0; /* Removes margin between stacked fields on smaller screens */
+  }
+}

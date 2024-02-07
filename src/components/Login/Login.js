@@ -4,6 +4,7 @@ import moominlogo from './moominlogo.png';
 
 
 import './Login.css'
+import { postService } from '../../services/client-api/postService';
 
 const Login = () => {
     const [passwordVisible, setPasswordVisible] = useState(false);
@@ -11,11 +12,25 @@ const Login = () => {
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-
-        const user = { userName, password };
-        // Implementation to authenticate the user and navigate
+        const user = { email:userName, password };
+        console.log(user);
+        let result =await postService.login(user);
+        if(result.data){
+            const [header, payloadBase64, signature] = result.data.accessToken.split('.');
+            const decodedPayload = atob(payloadBase64);
+            const payload = JSON.parse(decodedPayload);
+            if(payload.roles == "ROLE_CUSTOMER"){
+                alert("You are customer");
+            }else if(payload.roles == "ROLE_ADMIN"){
+                alert("You are Admin")
+            }else{
+                alert('You are Owner');
+            }
+        }else{
+            alert("wrong credentials");
+        }
     };
 
     return (

@@ -14,12 +14,8 @@ const Home = () => {
       <Hero />
       <Filters />
       <Projects />
-      {/* <WhatWeDo /> */}
       <Featured />
       <LatestForSale />
-      <Search />
-      {/* <Testimonial /> */}
-      {/* <Feeds /> */}
     </div>
   );
 };

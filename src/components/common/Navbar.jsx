@@ -160,7 +160,7 @@ const Navbar = () => {
           </div> */}
           {/*----------------------------- Profile Icon-------------------------------------------------- */}
           <div className="bg-white shadow-md icon-box dark:bg-dark-light hover:shadow-lg hover:bg-transparent">
-            <BiUser />
+            <Link to="/login"> <BiUser /> </Link>
           </div>
           {/*------------------------------- Mobile Menu Toogle------------------------- */}
           <div

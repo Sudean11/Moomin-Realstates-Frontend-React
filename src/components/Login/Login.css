@@ -1,0 +1,129 @@
+
+
+.login-box .login-title {
+    color: #502502; /* Adjusted to a lighter blue for more vibrancy */
+    text-align: center;
+    margin-bottom: 30px; /* Increased space between title and the first input field */
+    font-size: 55px; /* Increased font size for more prominence */
+    font-weight: bold;
+}
+
+  
+  /* Styles for form elements: labels and input fields */
+  .login-box label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .login-box input[type="text"],
+  .login-box input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* To ensure padding doesn't increase the box size */
+  }
+  
+  /* Styles for the sign-in button */
+  .login-box button {
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(222, 85, 35);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+ 
+  
+  
+  
+  /* Style for displaying validation feedback */
+  .login-box .invalid-feedback {
+    color: red;
+    font-size: 0.8rem;
+    margin-top: -15px;
+    margin-bottom: 10px;
+    display: none; /* Initially hide it */
+  }
+  
+  /* You might want to add a class to your input fields to show this feedback when needed */
+  .login-box .form-control.invalid + .invalid-feedback {
+    display: block; /* Show only when the input is invalid */
+  }
+
+  .page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh ; /* Adjust 60px according to your NavBar's height */
+    margin-top: 120px; /* Push the container down by the NavBar's height */
+  }
+  
+  .login-box {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    box-sizing: border-box;
+
+  }
+
+  .login-logo {
+    /* Add styles for your logo */
+    display: block; /* Treat the img element as a block for better control */
+    max-width: 450px; /* Adjust as necessary */
+    max-height: 450px; /* Adjust as necessary */
+    /* Align it properly with the login box */
+}
+
+.combined-container {
+    display: flex;
+    align-items: center; /* This ensures vertical alignment */
+    background: #FFFFFF; /* Adjust the color as needed */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* This adds the shadow effect */
+    border-radius: 8px; /* This adds the rounded corners */
+    /* ... other styles like padding, etc. ... */
+}
+
+.login-links {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.forgot-password-link,
+.signup-link {
+    margin-bottom: 10px; /* Add space between the links */
+    color: gray; /* Style the link color to match your design */
+    
+}
+
+.forgot-password-link:hover,
+.signup-link:hover {
+    text-decoration: underline; /* Adds an underline on hover for better user interaction */
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    align-items: center;/* Center children horizontally */
+    max-width: 450px; /* Adjust as necessary */
+}
+
+.home-page-link {
+    color: gray; /* Style to match your design */
+    font-size: 0.9rem; /* Smaller font size */
+    text-decoration: none; /* Optional: removes the underline from links */
+    margin-top: 10px;
+    margin-right: 30px; /* Space between the logo and the link */
+    align-items: center;
+}
+
+.home-page-link:hover {
+    text-decoration: underline; /* Adds an underline on hover */
+}
+

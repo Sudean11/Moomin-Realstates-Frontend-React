@@ -27,7 +27,7 @@ const ProductDetails = ({
 
   ]);
 
-  const [activeImage, setActiveImage] = useState(pictures[0]);
+  // const [activeImage, setActiveImage] = useState(pictures[0]);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
 
   const handleImageClick = (index) => {
@@ -44,7 +44,7 @@ const ProductDetails = ({
       number_of_beds,
       number_of_bathrooms,
       dimensions);
-  }, [activeImage]);
+  }, [activeImageIndex]);
 
 
 
@@ -53,13 +53,13 @@ const ProductDetails = ({
     <div className="container mx-auto py-8 px-4 md:flex md:flex-wrap   pt-16 bg-zinc-100 border-2 border-gray-300 rounded-lg " style={{ maxWidth: 1090 }}>
       <div className=" flex flex-col">
         <div className="mb-0" style={{ height: 600 }}>
-          <img src={activeImage} alt="Property image 1" className="w-full h-full object-fit rounded-lg" />
+          <img src={pictures[activeImageIndex]} alt="Property image 1" className="w-full h-full object-fit rounded-lg" />
         </div>
         <div className=" relative flex item-center pt-7" >
           <div id="slider" className='w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth'>
             {
               pictures.map((image, index) => (
-                  <img key={index} src={image} alt={`Image ${index + 1}`} onClick={() => setActiveImage(image)} className="w-[220px] h-[100px] p-2 inline-block cursor-pointer hover:scale-105 ease-in-out rounded-lg" />
+                 index!= activeImageIndex && <img key={index} src={image} alt={`Image ${index + 1}`} onClick={() => handleImageClick(index)} className="w-[220px] h-[100px] p-2 inline-block cursor-pointer hover:scale-105 ease-in-out rounded-lg" />
               ))
             }
           </div>

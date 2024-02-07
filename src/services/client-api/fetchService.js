@@ -26,8 +26,17 @@ const latestProperties = async () => {
     }
 }
 
+const filteredProperties = async (url) =>{
+    try{
+        let result = await apiService.get(url);
+        return result;
+    }catch(error){
+        return error;
+    }
+}
+
 
 
 export const fetchService = {
-    featuredProperties,allProperties,latestProperties
+    featuredProperties,allProperties,latestProperties,filteredProperties
 }

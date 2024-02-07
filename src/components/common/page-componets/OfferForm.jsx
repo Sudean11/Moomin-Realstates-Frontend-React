@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { toggleOfferFormVisibility } from '../../../features/uiSlice';
-import { fpostService } from '../../../services/client-api/postService';
+import {  postService } from '../../../services/client-api/postService';
 import { useNavigate, useParams } from 'react-router-dom';
 
 const OfferForm = () => {
@@ -26,7 +26,7 @@ const OfferForm = () => {
                 email: "sudin@gmail.com"
             };
 
-            const response = await fpostService.postOfferMade(requestBody);
+            const response = await postService.postOfferMade(requestBody);
             navigate('/');
         } catch (error) {
             console.error("Error sending offer:", error);

@@ -4,12 +4,19 @@ import
   BsListCheck,BsPersonCircle, BsMenuButtonWideFill, BsFillGearFill,BsBoxArrowRight }
  from 'react-icons/bs'
 import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux';
+import {uiStore,updateOwner} from '../../features/uiSlice';
+
 
 function Sidebar({openSidebarToggle, OpenSidebar},{role}) {
+
+const {ownerDash} = useSelector(uiStore);
+const dispatch = useDispatch();
+
     role="owner"
   return (
 
-    <aside id="sidebar" className={openSidebarToggle ? "sidebar-responsive": ""}>
+    <aside id="sidebar" className="">
         
         <div className='sidebar-title'>
             <div className='sidebar-brand'>
@@ -17,35 +24,36 @@ function Sidebar({openSidebarToggle, OpenSidebar},{role}) {
             </div>
             <span className='icon close_icon' onClick={OpenSidebar}>X</span>
         </div>
+        <hr/>
         {role === 'admin' && (
         <>
         <ul className='sidebar-list'>
-            <li className='sidebar-list-item'>
-                <Link to="/admin-dashboard"><BsGrid1X2Fill className='icon'/> Dashboard</Link>
+            <li className='sidebar-list-item' onClick={dispatch(updateOwner({ key: 'Dash', value: true }))}>
+                <Link to="/Linkdmin-dashboard"><BsGrid1X2Fill className='icon'/> Dashboard</Link>
                     
                 
             </li>
-            <li className='sidebar-list-item'>
-                <a href="/add-property">
+            <li className='sidebar-list-item' onClick={dispatch(updateOwner({ key: 'property', value: true }))}>
+                {/* <Link to="/Linkdd-property"> */}
                     <BsFillArchiveFill className='icon'/> Properties
-                </a>
+                {/* </Link> */}
             </li>
            
             <li className='sidebar-list-item'>
-                <a href="">
+                <Link to="">
                     <BsPeopleFill className='icon'/> Customers
-                </a>
+                </Link>
             </li>
             <li className='sidebar-list-item'>
-                <a href="">
+                <Link to="">
                     <BsListCheck className='icon'/> Manage Owner
-                </a>
+                </Link>
             </li>
 
             <div className="sidebar-logout">
-        <a href="/logout" className="sidebar-link">
+        <Link to="/logout" className="sidebar-link">
           <BsBoxArrowRight className='icon'/> Logout
-        </a>
+        </Link>
       </div>
         </ul>
         </>
@@ -55,26 +63,26 @@ function Sidebar({openSidebarToggle, OpenSidebar},{role}) {
         <>
         <ul className='sidebar-list'>
             <li className='sidebar-list-item'>
-                <Link to="/admin-dashboard"><BsGrid1X2Fill className='icon'/> Dashboard</Link>
+                <Link to="/Linkdmin-dashboard"><BsGrid1X2Fill className='icon'/> Dashboard</Link>
                  
             </li>
             <li className='sidebar-list-item'>
-                <a href="/add-property">
+                <Link to="/Linkdd-property">
                     <BsFillArchiveFill className='icon'/> Properties
-                </a> 
+                </Link> 
             </li>
            
             <li className='sidebar-list-item'>
-                <a href="">
+                <Link to="">
                     <BsPeopleFill className='icon'/> Offers
-                </a>
+                </Link>
             </li>
           
 
             <div className="sidebar-logout">
-        <a href="/logout" className="sidebar-link">
+        <Link to="/logout" className="sidebar-link">
           <BsBoxArrowRight className='icon'/> Logout
-        </a>
+        </Link>
       </div>
         </ul>
         </>
@@ -85,27 +93,27 @@ function Sidebar({openSidebarToggle, OpenSidebar},{role}) {
         <>
         <ul className='sidebar-list'>
             <li className='sidebar-list-item'>
-                <Link to="/admin-dashboard"><BsGrid1X2Fill className='icon'/> Dashboard</Link>
+                <Link to="/Linkdmin-dashboard"><BsGrid1X2Fill className='icon'/> Dashboard</Link>
                     
                 
             </li>
             <li className='sidebar-list-item'>
-                <a href="">
+                <Link to="">
                     <BsFillArchiveFill className='icon'/> favorite Properties List
-                </a>
+                </Link>
             </li>
            
             <li className='sidebar-list-item'>
-                <a href="">
+                <Link to="">
                     <BsPeopleFill className='icon'/> Offers History
-                </a>
+                </Link>
             </li>
             
 
             <div className="sidebar-logout">
-        <a href="/logout" className="sidebar-link">
+        <Link to="/logout" className="sidebar-link">
           <BsBoxArrowRight className='icon'/> Logout
-        </a>
+        </Link>
       </div>
         </ul>
         </>

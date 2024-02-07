@@ -11,6 +11,12 @@ const initialState = {
   isFilterMenuOpen: false,
   activeImageIndex: 0,
   isOfferFormVisible: false,
+  ownerDash:
+  {
+    Dash:true,
+    property:false,
+  }
+
 };
 
 const uiSlice = createSlice({
@@ -51,6 +57,18 @@ const uiSlice = createSlice({
     toggleOfferFormVisibility(state) {
       state.isOfferFormVisible = !state.isOfferFormVisible;
     },
+    updateOwner: (state, action) => {
+      const { key, value } = action.payload;
+      if (state.owner.hasOwnProperty(key)) {
+        state.owner[key] = value;
+        Object.keys(state.owner).forEach((otherKey) => {
+          if (otherKey !== key) {
+            state.owner[otherKey] = false;
+          }
+        });
+      }
+    },
+    
   },
 });
 
@@ -69,4 +87,5 @@ export const {
   closeFilterMenu,
   setActiveImageIndex,
   toggleOfferFormVisibility,
+  updateOwner,
 } = uiSlice.actions;

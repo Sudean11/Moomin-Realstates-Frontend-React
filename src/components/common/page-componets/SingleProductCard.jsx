@@ -9,11 +9,11 @@ const SingleProductCard = ({
   location,
   price,
   distance,
-  purpose,
-  number_of_beds,
-  number_of_bathrooms,
-  dimensions,
-  image,
+  description,
+  bedroom,
+  bathroom,
+  area,
+  banner,
   basis,
 }) => {
 
@@ -26,14 +26,15 @@ const SingleProductCard = ({
       location,
       price,
       distance,
-      purpose,
-      number_of_beds,
-      number_of_bathrooms,
-      dimensions,
-      image,
+      description,
+      bedroom,
+      bathroom,
+      area,
+      banner,
     });
 
   }
+
 
   return (
     <div
@@ -43,7 +44,7 @@ const SingleProductCard = ({
       <div className="group !opacity-100 overflow-hidden relative">
         <Link to="/" className="!opacity-100">
           <img
-            src={image}
+            src={banner}
             alt={name}
             className="w-full  h-fit md:h-[250px] object-cover group-hover:scale-125 transition-a"
           />
@@ -52,11 +53,11 @@ const SingleProductCard = ({
         <div className="absolute bottom-0 left-0 w-full px-2 py-2 transition-transform bg-gradient-to-t from-black/80 sm:translate-y-10 group-hover:translate-y-0 to-transparent">
           <div className="text-white flex-align-center gap-x-2">
             <BiMap />
-            <p>{location}</p>
+            <p>{location.city}</p>
           </div>
         </div>
       </div>
-      <CardLabels purpose={purpose} distance={distance} />
+      <CardLabels purpose={description} distance={distance} />
       <div className="p-3">
         <Link to="/" className="group-hover:text-primary transition-a">
           <h1 className="text-lg font-bold capitalize">{name}</h1>
@@ -66,19 +67,19 @@ const SingleProductCard = ({
             <div className="icon-box !w-7 !h-7 bg-primary/20 hover:!bg-primary/40 text-primary">
               <BiBed />
             </div>
-            <p className="text-sm">{number_of_beds} Beds</p>
+            <p className="text-sm">{bedroom} Beds</p>
           </div>
           <div className="flex-align-center gap-x-2">
             <div className="icon-box !w-7 !h-7 bg-primary/20 hover:!bg-primary/40 text-primary">
               <BiTab />
             </div>
-            <p className="text-sm">{number_of_bathrooms} Bathrooms</p>
+            <p className="text-sm">{bathroom} Bathrooms</p>
           </div>
           <div className="flex-align-center gap-x-2">
             <div className="icon-box !w-7 !h-7 bg-primary/20 hover:!bg-primary/40 text-primary">
               <BiMapAlt />
             </div>
-            <p className="text-sm">{dimensions}</p>
+            <p className="text-sm">{area}</p>
           </div>
         </div>
 

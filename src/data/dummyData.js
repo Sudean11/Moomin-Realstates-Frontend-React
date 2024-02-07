@@ -694,7 +694,12 @@ export const focus = [
     icon: <BiMoney />,
     text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod earum commodi provident est ex similique.",
   },
-  
+  {
+    id: 4,
+    name: "Rent a Home",
+    icon: <BiBuildings />,
+    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod earum commodi provident est ex similique.",
+  },
 ];
 
 export const categories = [

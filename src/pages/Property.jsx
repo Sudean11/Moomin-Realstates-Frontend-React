@@ -52,7 +52,7 @@ const Property = () => {
               <Type />
               <PriceRange />
               <SocialIcons />
-              <CTA />
+              {/* <CTA /> */}
             </div>
           </div>
         </div>

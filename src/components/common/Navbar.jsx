@@ -57,7 +57,7 @@ const Navbar = () => {
       onMouseOver={handleClose}
     >
       <Link to="/" className="flex-shrink-0 flex-align-center gap-x-1">
-        <BiBuildingHouse className="text-3xl text-primary" />
+      <img src="moomin.jpg" className="rounded-full w-6 h-6"/>
         <h1 className="hidden md:block">Moomin Home</h1>
       </Link>
 

@@ -2,6 +2,7 @@ import { BiBed, BiMap, BiMapAlt, BiTab } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import CardHoverIcons from "./CardHoverIcons";
 import CardLabels from "./CardLabels";
+import { useNavigate } from "react-router-dom";
 
 const SingleProductCard = ({
   name,
@@ -15,11 +16,29 @@ const SingleProductCard = ({
   image,
   basis,
 }) => {
+
+  const navigate = useNavigate();
+
+  const detailsButtonHandler = () => {
+    console.log("details button handler");
+    navigate('/propertyDetail', {
+      name,
+      location,
+      price,
+      distance,
+      purpose,
+      number_of_beds,
+      number_of_bathrooms,
+      dimensions,
+      image,
+    });
+
+  }
+
   return (
     <div
-      className={`flex-1 ${
-        basis ? basis : "basis-[18rem]"
-      } shadow-light dark:border-card-dark border rounded-lg overflow-hidden relative group`}
+      className={`flex-1 ${basis ? basis : "basis-[18rem]"
+        } shadow-light dark:border-card-dark border rounded-lg overflow-hidden relative group`}
     >
       <div className="group !opacity-100 overflow-hidden relative">
         <Link to="/" className="!opacity-100">
@@ -65,7 +84,7 @@ const SingleProductCard = ({
 
         <div className="mt-4 flex-center-between">
           <h1 className="text-lg font-semibold text-primary">${price}</h1>
-          <button className="btn btn-secondary">details</button>
+          <button className="btn btn-secondary" onClick={detailsButtonHandler}>details</button>
         </div>
       </div>
     </div>

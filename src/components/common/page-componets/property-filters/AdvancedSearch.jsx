@@ -1,4 +1,6 @@
 const AdvancedSearch = () => {
+
+  
   return (
     <div className="p-3 border dark:border-dark">
       <h1 className="font-semibold">Advanced Search</h1>
@@ -23,13 +25,6 @@ const AdvancedSearch = () => {
           <option value="$200,000 - $300,000">$200,000 - $300,000</option>
           <option value="$300,000 - $500,000">$300,000 - $500,000</option>
           <option value="$500,000 - $1000,000">$500,000 - $1000,000</option>
-        </select>
-      </div>
-      <div className="mt-3">
-        <select name="" id="" className="filter">
-          <option value="">Purpose</option>
-          <option value="sell">Sell</option>
-          <option value="rent">Rent</option>
         </select>
       </div>
       <div className="gap-2 mt-3 flex-align-center">

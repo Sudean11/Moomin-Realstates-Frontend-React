@@ -1,5 +1,6 @@
 import { BiBed, BiMap, BiMapAlt, BiTab } from "react-icons/bi";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import CardHoverIcons from "./CardHoverIcons";
 import CardLabels from "./CardLabels";
 
@@ -17,6 +18,25 @@ const SingleProductCardFullWidth = ({
   textLength,
   showLabels,
 }) => {
+  const navigate = useNavigate();
+
+
+  const detailsButtonHandler = () => {
+    console.log("details button handler");
+    navigate('/propertyDetail', {
+      name,
+      location,
+      price,
+      distance,
+      purpose,
+      number_of_beds,
+      number_of_bathrooms,
+      dimensions,
+      image,
+    });
+
+  }
+
   return (
     <div className="relative grid grid-cols-1 gap-3 mt-3 overflow-hidden border rounded-lg shadow-light sm:grid-cols-3 md:grid-cols-4 dark:border-card-dark group">
       <div className="sm:col-span-1">
@@ -69,7 +89,7 @@ const SingleProductCardFullWidth = ({
 
           <div className="mt-4 flex-center-between">
             <h1 className="text-lg font-semibold text-primary">${price}</h1>
-            <button className="btn btn-secondary">details</button>
+            <button className="btn btn-secondary" >details</button>
           </div>
         </div>
       </div>

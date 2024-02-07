@@ -6,7 +6,7 @@
   border: 1px solid #FF6E40; /* Border color to match your design */
   background-color: #ffffff; /* Default background */
   color: #FF6E40; /* Text color to match your design */
-  margin: 0; /* Reset margin */
+  margin: 5px; /* Reset margin */
   flex-grow: 0; /* Prevent the button from growing */
 }
 

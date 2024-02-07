@@ -1,0 +1,72 @@
+import { createSlice } from "@reduxjs/toolkit";
+import { navLinks } from "../data/navLinks";
+
+// const mode = JSON.parse(localStorage.getItem("Martvilla-theme-mode")) || false;
+
+const initialState = {
+  isDropdownOpen: false,
+  position: null,
+  currentLink: {},
+  isSidebarOpen: false,
+  isFilterMenuOpen: false,
+  activeImageIndex: 0,
+  isOfferFormVisible: false,
+};
+
+const uiSlice = createSlice({
+  name: "ui",
+  initialState,
+  reducers: {
+    openDropdown: (state, action) => {
+      const mainLink = action.payload.link;
+      state.currentLink = navLinks.find((link) => link.linkText === mainLink);
+      state.isDropdownOpen = true;
+      state.position = action.payload.center;
+    },
+    closeDropdown: (state) => {
+      state.isDropdownOpen = false;
+    },
+    toggleDropdown: (state) => {
+      state.isDropdownOpen = !state.isDropdownOpen;
+    },
+
+    openSidebar: (state) => {
+      state.isSidebarOpen = true;
+    },
+    closeSidebar: (state) => {
+      state.isSidebarOpen = false;
+    },
+    toggleSidebar: (state) => {
+      state.isSidebarOpen = !state.isSidebarOpen;
+    },
+    openFilterMenu: (state) => {
+      state.isFilterMenuOpen = true;
+    },
+    closeFilterMenu: (state) => {
+      state.isFilterMenuOpen = false;
+    },
+    setActiveImageIndex(state, action) {
+      state.activeImageIndex = action.payload;
+    },
+    toggleOfferFormVisibility(state) {
+      state.isOfferFormVisible = !state.isOfferFormVisible;
+    },
+  },
+});
+
+export default uiSlice.reducer;
+
+export const uiStore = (state) => state.ui;
+
+export const {
+  openDropdown,
+  closeDropdown,
+  toggleDropdown,
+  openSidebar,
+  closeSidebar,
+  toggleSidebar,
+  openFilterMenu,
+  closeFilterMenu,
+  setActiveImageIndex,
+  toggleOfferFormVisibility,
+} = uiSlice.actions;

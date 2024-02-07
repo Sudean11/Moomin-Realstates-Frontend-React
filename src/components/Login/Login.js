@@ -21,9 +21,11 @@ const Login = () => {
             const [header, payloadBase64, signature] = result.data.accessToken.split('.');
             const decodedPayload = atob(payloadBase64);
             const payload = JSON.parse(decodedPayload);
-            if(payload.roles == "ROLE_CUSTOMER"){
+            console.log(payload)
+            debugger
+            if(payload.roles[0].authority == "ROLE_CUSTOMER"){
                 alert("You are customer");
-            }else if(payload.roles == "ROLE_ADMIN"){
+            }else if(payload.roles[0].authority == "ROLE_ADMIN"){
                 alert("You are Admin")
             }else{
                 alert('You are Owner');

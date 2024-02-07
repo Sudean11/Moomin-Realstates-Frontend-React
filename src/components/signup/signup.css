@@ -1,4 +1,14 @@
 
+.toggle-btn {
+  padding: 8px 16px; /* Smaller padding for a more compact button */
+  font-size: 14px; /* Smaller font size */
+  border-radius: 20px; /* Rounded corners for toggle effect */
+  border: 1px solid #FF6E40; /* Border color to match your design */
+  background-color: #ffffff; /* Default background */
+  color: #FF6E40; /* Text color to match your design */
+  margin: 0; /* Reset margin */
+  flex-grow: 0; /* Prevent the button from growing */
+}
 
 .signup-box .signup-title {
     color: #502502; /* Adjusted to a lighter blue for more vibrancy */
@@ -13,18 +23,19 @@
   .signup-box label {
     font-weight: bold;
     display: block;
-    margin-bottom: 5px;
+   
   }
   
   .signup-box input[type="text"],
   .signup-box input[type="password"],
+  .signup-box input[type="tel"],
   .signup-box input[type="email"] {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
+    padding:5px;
+    margin-bottom:  1px;
     border: 1px solid #807777;
     border-radius: 4px;
-    box-sizing: border-box; /* To ensure padding doesn't increase the box size */
+    /* box-sizing: border-box; */ /* To ensure padding doesn't increase the box size */
   }
   
   /* Styles for the sign-in button */
@@ -128,3 +139,66 @@
     text-decoration: underline; /* Adds an underline on hover */
 }
 
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin: 0 10px; /* Adds spacing between fields */
+}
+
+.mb-3 {
+  margin-bottom: 9px; /* Adjusted spacing */
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.justify-content-around {
+  justify-content: space-around;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.btn-primary.active, .btn-outline-primary.active {
+  font-weight: bold; /* Makes text bolder for active button */
+  opacity: 1; /* Ensures active button is fully opaque */
+  padding: 5px 10px;
+}
+
+.btn-outline-primary {
+  background-color: #ffffff;
+  color: #007bff;
+  border: 1px solid #007bff;
+  opacity: 0.6; 
+  padding: 5px 10px;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  padding: 5px 10px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 500px) {
+  .row {
+      flex-direction: column;
+  }
+
+  .form-group {
+      margin: 0; /* Removes margin between stacked fields on smaller screens */
+  }
+}

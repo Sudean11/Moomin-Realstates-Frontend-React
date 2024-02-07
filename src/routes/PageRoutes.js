@@ -7,6 +7,7 @@ import AddProperty from "../components/addproperty/AddProperty.js";
 import AdminDashboard from "../components/adminpage/AdminDashboard.js";
 
 
+
 const PageRoutes = () => {
   return (
     <>
@@ -15,9 +16,8 @@ const PageRoutes = () => {
         <Route path="/login" element={<Login/>} />
         <Route path="/signup" element={ <Signup/>} />
         <Route path="/add-property" element={<AddProperty />} />
-        <Route path="/admin-dashboard"
-                element={<AdminDashboard />}
-              ></Route>
+        <Route path="/Admin-dashboard" element ={ <AdminDashboard/>}/>
+       
       </Routes>
     </>
   );

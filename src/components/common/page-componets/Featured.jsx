@@ -1,7 +1,22 @@
+import { useEffect, useState } from "react";
 import { property } from "../../../data/dummyData";
 import SingleProductCard from "./SingleProductCard";
+import { fetchService } from "../../../services/client-api/fetchService";
 
 const Featured = () => {
+
+  const [featuredProperties, setFeaturedProperties] = useState([]);
+
+  useEffect(()=>{
+    fetchFeaturedProperties();
+  },[])
+
+  const fetchFeaturedProperties=async()=>{
+    let fetchedProperty = await fetchService.featuredProperties();
+    setFeaturedProperties(fetchedProperty);
+    console.log(fetchedProperty);
+  }
+
   return (
     <div className="pt-10 pb-16">
       <div className="text-center">

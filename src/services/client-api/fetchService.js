@@ -1,4 +1,4 @@
-import { URL_FEATURED_PROPERTY } from "../../config/url";
+import { URL_FEATURED_PROPERTY,URL_All_PROPERTY,URL_LATEST_PROPERTY } from "../../config/url";
 import { apiService } from "../apiService"
 
 const featuredProperties = async () => { 
@@ -9,8 +9,25 @@ const featuredProperties = async () => {
         return error;
     }
 }
+const allProperties = async () => { 
+    try{
+        let result = await apiService.get(URL_All_PROPERTY);
+        return result;
+    }catch(error){
+        return error;
+    }
+}
+const latestProperties = async () => { 
+    try{
+        let result = await apiService.get(URL_LATEST_PROPERTY);
+        return result;
+    }catch(error){
+        return error;
+    }
+}
+
 
 
 export const fetchService = {
-    featuredProperties
+    featuredProperties,allProperties,latestProperties
 }

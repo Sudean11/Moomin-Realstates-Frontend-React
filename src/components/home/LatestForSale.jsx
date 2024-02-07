@@ -2,8 +2,21 @@ import { BiBed, BiMap, BiMapAlt, BiTab } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import { property } from "../../data/dummyData";
 import CardHoverIcons from "../common/page-componets/CardHoverIcons";
+import { useState,useEffect } from "react";
+import { fetchService } from "../../services/client-api/fetchService";
+
 
 const LatestForSale = () => {
+  const [featuredProperties, setFeaturedProperties] = useState([]);
+  useEffect(()=>{
+    fetchFeaturedProperties();
+  },[])
+
+  const fetchFeaturedProperties=async()=>{
+    let fetchedProperty = await fetchService.featuredProperties();
+    setFeaturedProperties(fetchedProperty);
+    console.log(fetchedProperty);
+  }
   return (
     <div className="pt-10 pb-16">
       <div className="text-center">
@@ -11,7 +24,7 @@ const LatestForSale = () => {
         <h1 className="heading">featured property for sale</h1>
       </div>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-        {property
+        {featuredProperties
           .slice(0, 6)
           ?.map(
             ({
@@ -19,18 +32,18 @@ const LatestForSale = () => {
               location,
               price,
               distance,
-              purpose,
-              number_of_beds,
-              number_of_bathrooms,
-              dimensions,
-              image,
+              description,
+              bedroom,
+              bathroom,
+              area,
+              banner,
             }) => (
               <div className="relative grid grid-cols-1 gap-3 mt-3 overflow-hidden border rounded-lg shadow-light sm:grid-cols-3 dark:border-card-dark group">
                 <div className="sm:col-span-1">
                   <div className="group !opacity-100 overflow-hidden relative h-full">
                     <Link to="/" className="!opacity-100">
                       <img
-                        src={image}
+                        src={banner}
                         alt={name}
                         className="object-cover w-full h-full group-hover:scale-125 transition-a"
                       />
@@ -44,7 +57,7 @@ const LatestForSale = () => {
                       {distance} away
                     </span>
                     <span className="py-[3px] px-3 rounded-full capitalize  bg-secondary/20 text-secondary">
-                      for {purpose}
+                      for {description}
                     </span>
                   </div>
                   <div className="p-3">
@@ -57,7 +70,7 @@ const LatestForSale = () => {
 
                     <div className="mt-2 flex-align-center gap-x-2">
                       <BiMap />
-                      <p>{location}</p>
+                      <p>{location.city}</p>
                     </div>
 
                     <div className="flex justify-between mt-3">
@@ -65,21 +78,21 @@ const LatestForSale = () => {
                         <div className="icon-box !w-7 !h-7 bg-primary/20 hover:!bg-primary/40 text-primary">
                           <BiBed />
                         </div>
-                        <p className="text-sm">{number_of_beds} Beds</p>
+                        <p className="text-sm">{bedroom} Beds</p>
                       </div>
                       <div className="flex-align-center gap-x-2">
                         <div className="icon-box !w-7 !h-7 bg-primary/20 hover:!bg-primary/40 text-primary">
                           <BiTab />
                         </div>
                         <p className="text-sm">
-                          {number_of_bathrooms} Bathrooms
+                          {bathroom} Bathrooms
                         </p>
                       </div>
                       <div className="flex-align-center gap-x-2">
                         <div className="icon-box !w-7 !h-7 bg-primary/20 hover:!bg-primary/40 text-primary">
                           <BiMapAlt />
                         </div>
-                        <p className="text-sm">{dimensions}</p>
+                        <p className="text-sm">{area}</p>
                       </div>
                     </div>
 

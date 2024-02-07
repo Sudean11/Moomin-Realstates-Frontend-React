@@ -6,7 +6,7 @@ import PropertyDetail from "../pages/PropertyDetail";
 import Login from "../components/Login/Login"
 import Signup from "../components/signup/Signup.js"
 import AddProperty from "../components/addproperty/AddProperty.js";
-import AdminDashboard from "../components/adminpage/AdminDashboard.js";
+import AdminDashboard from "../components/dashboard/admin/AdminDashboard.jsx";
 
 
 

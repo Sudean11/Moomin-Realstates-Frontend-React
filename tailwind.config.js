@@ -35,6 +35,7 @@ module.exports = {
     },
   },
   plugins: [
+    require("tailwind-scrollbar"),
     plugin(function ({ addUtilities }) {
       const newUtilities = {
         ".text-muted": {

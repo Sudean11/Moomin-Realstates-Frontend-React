@@ -6,6 +6,7 @@ import
 import { Link } from 'react-router-dom'
 
 function Sidebar({openSidebarToggle, OpenSidebar},{role}) {
+    role="owner"
   return (
 
     <aside id="sidebar" className={openSidebarToggle ? "sidebar-responsive": ""}>

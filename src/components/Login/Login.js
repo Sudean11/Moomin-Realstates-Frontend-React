@@ -23,7 +23,6 @@ const Login = () => {
             <div className="combined-container">
             <div className="logo-container">
             <img src={moominlogo} alt="Logo" className="login-logo" /> 
-            <Link to="signup-link" className="home-page-link">Back to home page</Link>
             </div>
             <div className="login-box">
             <p className="login-title">Log In</p>

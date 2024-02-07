@@ -1,9 +1,6 @@
 import {
   Featured,
-  Feeds,
   Projects,
-  Testimonial,
-  WhatWeDo,
 } from "../components/common/page-componets";
 import { Filters, Hero, LatestForSale } from "../components/home";
 import Search from "../components/home/Search";

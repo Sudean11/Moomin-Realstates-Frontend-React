@@ -6,7 +6,6 @@ import Footer from "./components/common/Footer";
 import Navbar from "./components/common/Navbar";
 import "./App.css"
 
-
 import { closeDropdown } from "./features/uiSlice"; 
 import Dropdown from "./components/common/DropDown";
 import NewsLetter from "./components/common/NewsLetter";
@@ -48,8 +47,8 @@ function App() {
 
   return (
     <div>
-      <PageRoutes/>
-      {/* {showLoader && <Loader />}
+      {/* <PageRoutes/> */}
+      {showLoader && <Loader />}
       <Navbar />
       <Dropdown />
       <div
@@ -65,7 +64,7 @@ function App() {
           <Footer />
         </div>
       </div>
-      <BackToTopButton showButton={showButton} /> */}
+      <BackToTopButton showButton={showButton} />
     </div>
   );
 }

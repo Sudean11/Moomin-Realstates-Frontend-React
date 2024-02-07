@@ -12,13 +12,12 @@ const Footer = () => {
         <div className="flex flex-wrap gap-2">
           <div className="flex-1 basis-[10rem]">
             <Link to="/" className="flex-shrink-0 flex-align-center gap-x-1">
-              <BiBuildingHouse className="text-3xl text-primary" />
-              <h1 className="hidden md:block">MartVilla</h1>
+            <img src="moomin.jpg" className="rounded-full w-6 h-6"/>
+              <h1 className="hidden md:block">Moomin Homes</h1>
             </Link>
             <div className="mt-3">
               <p className="text-sm">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab
-                harum explicabo illo, magnam vitae expedita.
+                 get new updates on the houses available in the market
               </p>
               <div className="gap-5 my-6 flex-center-center">
                 <div className="icon-box bg-dark-light hover:bg-hover-color-dark">
@@ -43,12 +42,7 @@ const Footer = () => {
           <div className="flex-1 basis-[10rem]">
             <h2 className="text-xl font-semibold">Services</h2>
             <ul>
-              <li className="my-3 text-muted">
-                <a href="#"> Order Tracking</a>
-              </li>
-              <li className="my-3 text-muted">
-                <a href="#">Whislist</a>
-              </li>
+            
               <li className="my-3 text-muted">
                 <a href="#">Terms of use</a>
               </li>
@@ -121,7 +115,7 @@ const Footer = () => {
       </footer>
       <div className="py-2 mt-3 text-center border-t text-muted border-dark">
         <p>
-          Created By <span className="text-primary">Wabweni Brian</span> | All
+          Created By <span className="text-primary">Moomin Homes</span> | All
           Rights Reserved
         </p>
       </div>

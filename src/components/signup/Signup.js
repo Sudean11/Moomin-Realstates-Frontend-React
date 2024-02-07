@@ -36,7 +36,7 @@ const Signup = () => {
             <div className="combined-container">
                 <div className="logo-container">
                     <img src={moominlogo} alt="Logo" className="signup-logo" />
-                    <p><Link to="/" className="home-page-link">Back to home page</Link></p>
+                    <br/>
                 </div>
                 <div className="signup-box">
                     <p className="signup-title">Sign Up</p>

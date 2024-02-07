@@ -4,7 +4,7 @@ import { apiService } from "../apiService";
 const login = async (user) => { 
     try{
         let result = await apiService.post(URL_LOGIN, user);
-        localStorage.setItem('myData', result.data.accessToken);
+        localStorage.setItem('auth', result.data.accessToken);
         return result;
     }catch(error){
         return error;

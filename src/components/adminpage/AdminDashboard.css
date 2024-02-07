@@ -129,6 +129,12 @@ body {
     padding: 20px 20px;
     color: rgba(255, 255, 255, 0.95);
   }
+
+  .home{
+    grid-area: main;
+    padding: 20px;
+    min-height: 100vh;
+  }
   
   .main-title {
     justify-content: space-between;
@@ -253,3 +259,58 @@ body {
     margin-right: 10px;
   }
   
+  
+
+  .table th, .table td {
+    border: 1px solid #ddd; 
+    text-align: center;
+    vertical-align: middle;
+    padding-left: 2rem;
+  }
+
+  .table thead th {
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
+    text-align: center;
+    border-bottom: 1.5px solid #0d0d0d;
+    border-right: 1.5px solid #0d0d0d;
+  
+   
+  }
+
+  /* Add a hover state to table rows within <tbody> */
+.table-hover tbody tr:hover {
+  color: #212529;
+  background-color: rgba(0, 0, 0, 0.075);
+}
+ 
+.table tbody td {
+  border-right: 1px solid #ddd; /* Light grey border between cells */
+  text-align: center;
+  vertical-align: middle;
+  padding: .5rem; /* Adjusted padding for cell spacing */
+  border-bottom: 1px solid#0d0d0d;
+}
+
+.table {
+  width: 100%;
+  border: 1px #0d0d0d;
+  border-collapse: collapse;
+}
+
+.table-bordered {
+  border: 1px solid #343a40; /* Dark grey border for the table */
+}
+
+
+/* Adjusting this to avoid double borders */
+.table th:last-child,
+.table td:last-child {
+  border-right: none;
+  
+}
+
+/* Adjusting this to avoid double borders */
+.table tbody tr:last-child td {
+  border-bottom: none;
+}

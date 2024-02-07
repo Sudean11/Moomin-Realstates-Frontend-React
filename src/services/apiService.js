@@ -4,7 +4,10 @@ import { API } from "../config/api";
 const get = async (url) => {
     try {
         let data = [];
-        data = (await API.get(url)).data;
+        data = (await API.get(url,{headers: {
+            'Content-Type': 'application/json',
+            'ngrok-skip-browser-warning': 'true' // Set and send ngrok-skip-browser-warning header
+          },})).data;
         return data;
     } catch (error) {
         console.log(error.message)

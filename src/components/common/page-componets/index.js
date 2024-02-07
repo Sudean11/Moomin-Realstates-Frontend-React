@@ -21,3 +21,4 @@ export { default as PriceRange } from "./property-filters/PriceRange";
 export { default as Type } from "./property-filters/Type";
 export { default as HeadeFilters } from "./property-filters/HeadeFilters";
 export {default as PropertyDetail } from "../../../pages/PropertyDetail";
+export {default as OfferForm} from "./OfferForm";

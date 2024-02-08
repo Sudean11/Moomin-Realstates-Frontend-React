@@ -7,12 +7,18 @@ import OwnerDashboard from "../components/dashboard/owner/OwnerDashboard.jsx";
 import PropertiesTable from "../components/dashboard/admin/PropertiesTable.jsx";
 import Offers from "../components/dashboard/owner/Offers.jsx";
 import Users from "../components/dashboard/admin/Users.jsx";
+import AddProperty from "../components/dashboard/owner/addproperty/AddProperty.js"
+import App from "../App.js"
+import PanelLayout from "../components/dashboard/client/shared/PanelLayout.jsx"
+import ClientDashboard from "../components/dashboard/client/ClientDashboard.jsx"
 
+import OfferList from "../components/dashboard/client/OfferList.jsx"
+import OfferHistory from "../components/dashboard/client/OfferHistory.jsx"
+import SavedList from "../components/dashboard/client/SavedList.jsx"
 
 import Login from "../components/Login/Login";
 import Signup from "../components/signup/Signup.js";
-import AddProperty from "../components/addproperty/AddProperty.js";
-import AdminDashboard from "../components/dashboard/admin/AdminDashboard.js";
+import AdminDashboard from "../components/dashboard/admin/AdminDashboard.jsx";
 
 const PageRoutes = () => {
   return (
@@ -32,7 +38,7 @@ const PageRoutes = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
         </Route>
-        <Route path="/add-property" element={<AddProperty />} />
+        <Route path="/add-property" element={<AddProperty/>} />
         <Route path="/admin-dashboard" element={<AdminDashboard />} />
         <Route path="/client" element={<PanelLayout />}>
           <Route index element={<ClientDashboard />}/>

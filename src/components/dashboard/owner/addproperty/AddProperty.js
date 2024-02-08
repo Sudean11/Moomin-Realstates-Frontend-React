@@ -1,169 +1,197 @@
-import { useState } from "react";
-import './AddProperty.css'
-
+import { useState, useRef } from "react";
+import './AddProperty.css';
 
 const AddProperty = () => {
+  const propertyNameRef = useRef();
+  const descriptionRef = useRef();
+  const addressRef = useRef();
+  const streetRef = useRef();
+  const zipRef = useRef();
+  const cityRef = useRef();
+  const squareFeetRef = useRef();
+  const numberOfRoomsRef = useRef();
+  const numberOfBathRoomsRef = useRef();
+  const rentAmountRef = useRef();
+  const isRentedRef = useRef();
+  const rentedDateRef = useRef();
+  const propertyTypeRef = useRef();
+  const homeTypeRef = useRef();
+  const isForSaleRef = useRef();
+  const imageRef = useRef();
 
-  const [propertyName, setPropertyName] = useState("");
-  const [description, setDescription] = useState("");
-  const [address, setAddress] = useState("");
-  const [street, setStreet] = useState("");
-  const [zip, setZip] = useState("");
-  const [city, setCity] = useState("");
-  const [squareFeet, setSquareFeet] = useState("");
-  const [numberOfRooms, setNumberOfRooms] = useState("");
-  const [numberOfBathRooms, setNumberOfBathRooms] = useState("");
-  const [rentAmount, setRentAmount] = useState("");
-  const [isRented, setIsRented] = useState("");
-  const [rentedDate, setRentedDate] = useState("");
-  const [propertyType, setPropertyType] = useState("");
-  const [homeType, setHomeType] = useState("");
-  const [isForSale, setIsForSale] = useState("");
-  const [image, setImage] = useState({ file: null });
-
-  function onFileUploadChange(e) {
-    setImage({ file: e.target.files[0] });
-  };
   function Submit(e) {
     e.preventDefault();
+
+    const reqBody = {
+      name: propertyNameRef.current.value,
+      description: descriptionRef.current.value,
+      address: addressRef.current.value,
+      street: streetRef.current.value,
+      zip: zipRef.current.value,
+      city: cityRef.current.value,
+      squareFeet: squareFeetRef.current.value,
+      numberOfRooms: numberOfRoomsRef.current.value,
+      numberOfBathRooms: numberOfBathRoomsRef.current.value,
+      rentAmount: rentAmountRef.current.value,
+      isRented: isRentedRef.current.value,
+      rentedDate: rentedDateRef.current.value,
+      propertyType: propertyTypeRef.current.value,
+      homeType: homeTypeRef.current.value,
+      isForSale: isForSaleRef.current.value,
+      image: imageRef.current.files[0] // access file from the input element
+    };
+
+    console.log(reqBody); // Just logging for demonstration, replace with API call
   };
 
   return (
     <div className="container-add">
       <div className="box-add">
         <form>
-        <div >
           <div>
-            <div className="card-header">
-              <h3 className="login-title">Add Property</h3>
-            </div>
-            <div className="card-body">
-              
+            <div>
+              <div className="card-header">
+                <h3 className="login-title">Add Property</h3>
+              </div>
+              <div className="card-body">
                 <div className="mb-3">
                   <label className="form-label">Property Name</label>
                   <input
-                    value={propertyName}
-                    onChange={(e) => setPropertyName(e.target.value)}
-                    type="email"
-                    class="form-control custom-input"
+                    ref={propertyNameRef}
+                    type="text"
+                    className="form-control custom-input"
                   />
                 </div>
                 <div className="mb-3">
                   <label className="form-label">Description</label>
                   <textarea
-                    class="form-control custom-input"
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
+                    ref={descriptionRef}
+                    className="form-control custom-input"
                     rows="5"
                   ></textarea>
                 </div>
                 <div className="mb-3">
-                  <label class="form-label">
-                    Address
-                  </label>
+                  <label className="form-label">Address</label>
                   <input
-                    type="text"
-                    value={address}
-                    onChange={(e) => setAddress(e.target.value)}
-                    class="form-contro custom-input"
-                  />
-                </div>
-                <div className="mb-3">
-                  <label className="form-label ">
-                    Square Feet
-                  </label>
-                  <input
-                    value={squareFeet}
-                    onChange={(e) => setSquareFeet(e.target.value)}
+                    ref={addressRef}
                     type="text"
                     className="form-control custom-input"
                   />
                 </div>
                 <div className="mb-3">
-                  <label className="form-label" >
-                    Number Of Rooms
-                  </label>
+                  <label className="form-label">Street</label>
                   <input
-                    value={numberOfRooms}
-                    onChange={(e) => setNumberOfRooms(e.target.value)}
+                    ref={streetRef}
                     type="text"
                     className="form-control custom-input"
                   />
                 </div>
                 <div className="mb-3">
-                  <label className="form-label" >
-                    Number Of Bathrooms
-                  </label>
+                  <label className="form-label">Zip</label>
                   <input
-                    value={numberOfBathRooms}
-                    onChange={(e) => setNumberOfBathRooms(e.target.value)}
+                    ref={zipRef}
                     type="text"
                     className="form-control custom-input"
                   />
                 </div>
                 <div className="mb-3">
-                  <label className="form-label" >
-                    Price
-                  </label>
+                  <label className="form-label">City</label>
                   <input
-                    value={rentAmount}
-                    onChange={(e) => setRentAmount(e.target.value)}
+                    ref={cityRef}
                     type="text"
                     className="form-control custom-input"
                   />
                 </div>
                 <div className="mb-3">
-                  <label className="form-label">
-                    Property Type
-                  </label>
-                  <select
-                    value={isRented}
-                    onChange={(e) => setIsRented(e.target.value)}
-                  >
-                    <option selected>Choose...</option>
-                    <option>House for Rent</option>
-                    <option>House for Sale</option>
-                  </select>
-                </div>
-                <div >
-                  <label className="form-label clear-label">
-                    Home Type
-                  </label>
-                  <select
-                    value={propertyType}
-                    onChange={(e) => setPropertyType(e.target.value)}
-                  >
-                    <option selected>Choose...</option>
-                    <option>House</option>
-                    <option>Trailer</option>
-                  </select>
-                </div>
-                <div>
-                <div className="mb-3" >
-                  <label className="form-label">
-                    Insert pictures
-                  </label>
+                  <label className="form-label">Square Feet</label>
                   <input
-                    onChange={onFileUploadChange}
+                    ref={squareFeetRef}
+                    type="text"
+                    className="form-control custom-input"
+                  />
+                </div>
+                <div className="mb-3">
+                  <label className="form-label">Number Of Rooms</label>
+                  <input
+                    ref={numberOfRoomsRef}
+                    type="text"
+                    className="form-control custom-input"
+                  />
+                </div>
+                <div className="mb-3">
+                  <label className="form-label">Number Of Bathrooms</label>
+                  <input
+                    ref={numberOfBathRoomsRef}
+                    type="text"
+                    className="form-control custom-input"
+                  />
+                </div>
+                <div className="mb-3">
+                  <label className="form-label">Price</label>
+                  <input
+                    ref={rentAmountRef}
+                    type="text"
+                    className="form-control custom-input"
+                  />
+                </div>
+                <div className="mb-3">
+                  <label className="form-label">Is Rented</label>
+                  <input
+                    ref={isRentedRef}
+                    type="text"
+                    className="form-control custom-input"
+                  />
+                </div>
+                <div className="mb-3">
+                  <label className="form-label">Rented Date</label>
+                  <input
+                    ref={rentedDateRef}
+                    type="text"
+                    className="form-control custom-input"
+                  />
+                </div>
+                <div className="mb-3">
+                  <label className="form-label">Property Type</label>
+                  <input
+                    ref={propertyTypeRef}
+                    type="text"
+                    className="form-control custom-input"
+                  />
+                </div>
+                <div className="mb-3">
+                  <label className="form-label">Home Type</label>
+                  <input
+                    ref={homeTypeRef}
+                    type="text"
+                    className="form-control custom-input"
+                  />
+                </div>
+                <div className="mb-3">
+                  <label className="form-label">Is For Sale</label>
+                  <input
+                    ref={isForSaleRef}
+                    type="text"
+                    className="form-control custom-input"
+                  />
+                </div>
+                <div className="mb-3">
+                  <label className="form-label">Insert Pictures</label>
+                  <input
+                    ref={imageRef}
                     type="file"
                     className="form-control"
                   />
                 </div>
-                </div>
-                
-
                 <button onClick={Submit} type="submit" className="btn btn-primary">
                   Submit
                 </button>
-
-              
+              </div>
             </div>
           </div>
-        </div>
         </form>
       </div>
-
     </div>
-  )
-}
+  );
+};
+
 export default AddProperty;

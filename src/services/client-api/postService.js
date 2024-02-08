@@ -30,7 +30,7 @@ const postOfferMade = async (requestBody) => {
     }
 }
 const getPendingStatus = async() => {
-  const email=authService.getEmailFromLocalStorage();
+  const email= await authService.getEmailFromLocalStorage()
   try{
       let result = await apiService.get(`/api/v1/property/user?email=${email}`);
       return result;

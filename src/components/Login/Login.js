@@ -1,16 +1,35 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import moominlogo from './moominlogo.png';
 
 
 import './Login.css'
 import { postService } from '../../services/client-api/postService';
+import { authService } from '../../services/client-api/authService';
 
 const Login = () => {
     const [passwordVisible, setPasswordVisible] = useState(false);
     const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
+
+    useEffect(()=>{
+        debugger
+      checkRolesAndRedirect();
+    })
+    const checkRolesAndRedirect = async()=>{
+        let role = await authService.getRoleFromLocalStorage();
+        if(role == "ROLE_CUSTOMER"){
+            navigate('/client');
+        }else if(role == "ROLE_ADMIN"){
+            // alert("You are Admin")
+            navigate('/admin-dashboard')
+           
+        }else if(role == "ROLE_OWNER"){
+            // alert('You are Owner'); if 
+            navigate('/owner-dashboard');
+        }
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -21,16 +40,17 @@ const Login = () => {
             const [header, payloadBase64, signature] = result.data.accessToken.split('.');
             const decodedPayload = atob(payloadBase64);
             const payload = JSON.parse(decodedPayload);
+            localStorage.setItem("role", payload.roles[0].authority);
             console.log(payload)
             if(payload.roles[0].authority == "ROLE_CUSTOMER"){
-                alert("You are customer");
-                navigate('/admin-dashboard');
+                navigate('/client');
             }else if(payload.roles[0].authority == "ROLE_ADMIN"){
                 // alert("You are Admin")
+                navigate('/admin-dashboard')
                
             }else{
                 // alert('You are Owner');
-                navigate('/admin-dashboard');
+                navigate('/owner-dashboard');
             }
         }else{
             alert("wrong credentials");

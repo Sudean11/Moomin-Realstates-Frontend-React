@@ -6,6 +6,7 @@ import {
   URL_GET_OFFERS,
   URL_LIST_OFFERS,
   URL_TABLE_PROPERTIES,
+  URL_USER_LIST,
 } from "../../config/url";
 import { apiService } from "../apiService";
 import { authService } from "./authService";
@@ -53,7 +54,7 @@ const propertiesTable = async() => {
     }
 }
 const offersTable = async() => {
-    const email=authService.getEmailFromLocalStorage();
+    const email= await authService.getEmailFromLocalStorage();
     try{
         let result = await apiService.get(`api/v1/offer?email=${email}`);
         return result;
@@ -62,7 +63,7 @@ const offersTable = async() => {
     }
 }
 const offersTableForCustomer = async() => {
-    const email=authService.getEmailFromLocalStorage();
+    const email= await authService.getEmailFromLocalStorage();
 try{
     let result = await apiService.get(`/api/v1/offer?email=${email}&customer=true`);
     return result;

@@ -119,7 +119,20 @@ const createUser = async (user) => {
   }
 };
 
+const userApprove = async (id) => {
+  try {
+    let result = await apiService.post(`/api/v1/users/${id}/verify`);
+    return result;
+  } catch (error) {
+    return error;
+  }
+};
+
+
+
+
+
 
 export const postService = {
-  login,postOfferMade,getPendingStatus,getPostTableAccept,acceptUserForOwner,acceptOfferForCustomer,rejectUserForOwner,rejectOfferForCustomer,sendNewProperty,createUser,rejectOfferForOwner,rejectContingencyForOwner
+  login,postOfferMade,getPendingStatus,getPostTableAccept,acceptUserForOwner,acceptOfferForCustomer,rejectUserForOwner,rejectOfferForCustomer,sendNewProperty,createUser,rejectOfferForOwner,rejectContingencyForOwner,userApprove
 };

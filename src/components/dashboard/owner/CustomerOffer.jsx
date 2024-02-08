@@ -75,6 +75,7 @@ const CustomerOffers = () => {
                                     {offer.sellerStatus === "ACCEPTED" && offer.buyerStatus === null && (
                                         <div>
                                         <button value={offer.id} onClick={() => handleProperty(offer.id)}>Accept</button>
+                                        <br/>
                                         <button value={offer.id} onClick={() => handlePropertyReject(offer.id)}>Reject</button></div>
                                     )}
                                 </td>

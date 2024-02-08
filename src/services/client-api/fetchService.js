@@ -7,6 +7,8 @@ import {
   URL_LIST_OFFERS,
   URL_TABLE_PROPERTIES,
   URL_USER_LIST,
+  URL_OFFERS_HISTORY,
+  URL_USER_MESSAGE
 } from "../../config/url";
 import { apiService } from "../apiService";
 import { authService } from "./authService";
@@ -101,6 +103,24 @@ const listOffers = async () => {
   }
 };
 
+const offersHistory = async () => {
+    try {
+        let result = await apiService.get(URL_OFFERS_HISTORY);
+        return result;
+    } catch (error) {
+        return error;
+    }
+};
+
+const usermessage = async () => {
+  try {
+    let result = await apiService.get(URL_USER_MESSAGE);
+    return result;
+  }catch (error) {
+    return error;
+  }
+};
+
 
 
 export const fetchService = {
@@ -109,6 +129,7 @@ export const fetchService = {
   latestProperties,
   listOffers,
   filteredProperties,
-  propertiesTable,offersTable,offersTableForCustomer,getPropertyDetailsById
+  propertiesTable,offersTable,offersTableForCustomer,getPropertyDetailsById,
+  offersHistory,usermessage
 };
 

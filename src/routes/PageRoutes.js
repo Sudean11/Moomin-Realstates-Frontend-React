@@ -19,6 +19,7 @@ import SavedList from "../components/dashboard/client/SavedList.jsx"
 import Login from "../components/Login/Login";
 import Signup from "../components/signup/Signup.js";
 import AdminDashboard from "../components/dashboard/admin/AdminDashboard.jsx";
+import UserMessage from "../components/dashboard/owner/UserMessage.jsx"
 
 const PageRoutes = () => {
   return (
@@ -30,7 +31,7 @@ const PageRoutes = () => {
         <Route path="/propertiesTable" element ={<PropertiesTable/>}/>
         <Route path="/owner-dashboard" element ={ <OwnerDashboard/>}/>
         <Route path ="/propertyDetail/:id"element ={<PropertyDetail/>} />
-
+        <Route path="/message-user" element={<UserMessage />}/>
 
           <Route index element={<Home />} />
           <Route path="/property" element={<Property />} />
@@ -45,6 +46,8 @@ const PageRoutes = () => {
           <Route path="offerList" element={<OfferList />}/>
           <Route path="offerHistory" element={<OfferHistory />}/>
           <Route path="savedList" element={<SavedList />}/>
+         
+          
         </Route>
       </Routes>
     </>

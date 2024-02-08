@@ -44,7 +44,9 @@ const PropertiesTable = () => {
                             <th scope="col">Properties</th>
                             <th scope="col">Location</th>
                             <th scope="col">Owner</th>
-                            <th scope="col">Status</th>
+                            <th scope="col"> Property status</th>
+                            <th scope="col">Action</th>
+                            
                         </tr>
                     </thead>
                     <tbody className="table-group-divider">
@@ -53,6 +55,7 @@ const PropertiesTable = () => {
                                 <td>{property.name}</td>
                                 <td>{property.price}</td>
                                 <td>{property.area}</td>
+                                <td>{property.status}</td>
                                 <td>
                                 <button value={property.id} onClick={(event) => handleProperty(event.target.value)}>Click me</button>
                                 </td>

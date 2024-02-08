@@ -137,6 +137,16 @@ const favourtie = async (fav) => {
   } catch (error) {
     return error;
   }
+}
+
+const sendMessageswithOfferIdFromOwner = async (reqBody) => {
+  
+  try {
+    let result = await apiService.post(`/api/v1/message`,reqBody);
+    return result;
+  } catch (error) {
+    return error;
+  }
 };
 
 
@@ -153,5 +163,6 @@ export const postService = {
   sendNewProperty,
   createUser,
   rejectOfferForOwner,
-  rejectContingencyForOwner,userApprove,favourtie
+  rejectContingencyForOwner,userApprove,favourtie,
+  sendMessageswithOfferIdFromOwner
 };

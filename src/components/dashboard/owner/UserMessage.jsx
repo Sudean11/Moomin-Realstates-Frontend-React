@@ -13,7 +13,7 @@ const UserMessage =()=> {
         setmessage(fetchedUserMessage);
         console.log(fetchedUserMessage)
     }
-
+debugger;
     useEffect( ()=> {
         fetchUserMessage();
     }, []);
@@ -35,8 +35,9 @@ const UserMessage =()=> {
                     <tbody className="table-group-divider">
                         {message.map((user) => (
                             <tr key={user.id}>
-                                <td>{user.property.name}</td>
-                                <td>{user.user.email}</td>
+                                <td>{user.email}</td>
+                                <td>{user.message}</td>
+
                             </tr>
                         ))}
                     </tbody>

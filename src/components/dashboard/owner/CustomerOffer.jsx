@@ -8,6 +8,7 @@ import MessageBox from "./MessageBox";
 const CustomerOffers = () => {
     const [listOffers, setListOffers] = useState([]);
     const [reloadData, setReloadData] = useState(true);
+    const [offerId, setOfferId] = useState(0);
     const{isMessageUserFormVisible} = useSelector(uiStore);
     const dispatch=useDispatch();
     useEffect(() => {
@@ -48,8 +49,11 @@ const CustomerOffers = () => {
             console.error("Error accepting offer:", error);
         }
     };
-    const message=()=>{
+    const message=(id)=>{
+        setOfferId(id);
+        debugger;
         dispatch(toggleMessageUserFormVisibility());
+
     }
 
     return (
@@ -90,12 +94,13 @@ const CustomerOffers = () => {
                                     )}
                                     
                                 </td>
-                                <td> <button onClick={message}>Message</button></td>
+                                <td> <button value={offer.id} onClick={()=>{message(offer.id)}}>Message</button></td>
                             </tr>
                         ))}
                     </tbody>
                 </table>
-                {isMessageUserFormVisible && <MessageBox/>}
+                {isMessageUserFormVisible && <MessageBox offerId={offerId} />}
+
             </div>
         </div>
     );

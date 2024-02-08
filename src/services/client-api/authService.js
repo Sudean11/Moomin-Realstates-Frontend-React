@@ -4,6 +4,13 @@ const getTokenFromLocalStorage=async ()=> {
     return token;
   }
 
+  const getEmailFromLocalStorage=async ()=> {
+    // Retrieve the token from localStorage
+    const email = await localStorage.getItem('email');
+    return email;
+  }
+
   export const authService = {
-    getTokenFromLocalStorage
+    getTokenFromLocalStorage,
+    getEmailFromLocalStorage
   }

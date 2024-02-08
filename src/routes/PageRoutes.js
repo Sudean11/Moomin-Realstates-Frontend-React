@@ -27,7 +27,6 @@ const PageRoutes = () => {
     <>
       <Routes>
         <Route path="/" element={<App />}>
-          <Route path="/messageUser " element={<MessageBox />} />
 
           <Route index element={<Home />} />
           <Route path="/User" element={<Users />} />

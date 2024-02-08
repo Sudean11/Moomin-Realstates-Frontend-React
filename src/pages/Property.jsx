@@ -12,7 +12,6 @@ import {
   Type,
 } from "../components/common/page-componets";
 import { PropertyList } from "../components/property";
-import { property } from "../data/dummyData";
 import { closeFilterMenu, uiStore } from "../features/uiSlice";
 import { fetchService } from "../services/client-api/fetchService";
 import { getCurrentItems } from "../features/dataSlice";

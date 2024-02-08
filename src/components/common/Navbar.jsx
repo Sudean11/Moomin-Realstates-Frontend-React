@@ -17,24 +17,13 @@ import SingleLink from "./SingleLink";
 
 const Navbar = () => {
   const rootDoc = document.querySelector(":root");
-  // const { darkMode, isSidebarOpen } = useSelector(uiStore);
   const { isSidebarOpen } = useSelector(uiStore);
   const [showSearchBar, setShowSearchBar] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // Dark mode toggle
-  // const handleDarkMode = () => {
-  //   dispatch(toggleDarkMode());
-  // };
 
-  // Store darkmode value to localStorage;
-  // useEffect(() => {
-  //   if (darkMode) rootDoc.classList.add("dark");
-  //   else rootDoc.classList.remove("dark");
-  //   localStorage.setItem("Martvilla-theme-mode", JSON.stringify(darkMode));
-  // }, [darkMode]);
 
   const handleClose = (e) => {
     if (!e.target.classList.contains("link")) {

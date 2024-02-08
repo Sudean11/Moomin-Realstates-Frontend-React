@@ -51,6 +51,12 @@ function OwnerSidebar({ openSidebarToggle, OpenSidebar } ) {
                             </Link>
                         </li>
 
+                        <li className='sidebar-list-item'>
+                            <Link to="/message-user">
+                                <BsPeopleFill className='icon' /> Message
+                            </Link>
+                        </li>
+
 
                         <div className="sidebar-logout">
                             <Link to="/" className="sidebar-link" onClick={logout}>

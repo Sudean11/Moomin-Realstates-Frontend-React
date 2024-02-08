@@ -2,8 +2,8 @@ import { BiBriefcase, BiBuildings, BiMap, BiMoney } from "react-icons/bi";
 
 const Filters = () => {
   return (
-    <div className="md:max-w-[80%] w-full mx-auto relative -mt-16 sm:-mt-28">
-      <div className="bg-white card card-shadow dark:shadow-none">
+    <div className="md:max-w-[80%] w-full mx-auto relative -mt-16 sm:-mt-28 bg-orange-500" >
+      <div className="bg-white card card-shadow homeColor bg-orange-500" >
         <h1 className="text-lg font-bold">Search the price your looking for</h1>
         <div className="z-40 flex-col mt-4 gap-x-4 flex-center-between gap-y-4 md:gap-y-0 md:flex-row ">
           <div className="flex-col flex-1 w-full flex-align-center gap-x-4 md:w-fit sm:flex-row gap-y-4 sm:gap-y-0">
@@ -40,7 +40,7 @@ const Filters = () => {
             </div>
           </div>
           <div className="h-10 w-[1px] bg-slate-300 hidden md:block dark:bg-dark-light "></div>
-          <div className="flex-col flex-1 w-full flex-align-center gap-x-4 md:w-fit sm:flex-row gap-y-4 sm:gap-y-0">
+          <div className="flex-col flex-1 w-[80%] flex-align-center gap-x-4 md:w-fit sm:flex-row gap-y-4 sm:gap-y-0">
             <div className="flex-1 w-full p-2 rounded-lg md:w-fit bg-slate-100 dark:bg-hover-color-dark md:!bg-transparent">
               <h1 className="font-bold">Price range</h1>
               <div className="flex-align-center gap-x-2">
@@ -68,20 +68,6 @@ const Filters = () => {
               </div>
             </div>
             <div className="h-10 w-[1px] bg-slate-300 hidden md:block dark:bg-dark-light "></div>
-            <div className="flex-1 w-full p-2 rounded-lg md:w-fit bg-slate-100 dark:bg-hover-color-dark md:!bg-transparent">
-              <h1 className="font-bold">For</h1>
-              <div className="flex-align-center gap-x-2">
-                <BiBriefcase />
-                <select
-                  name=""
-                  id=""
-                  className="w-full bg-transparent border-0 outline-none opacity-70 dark:bg-hover-color-dark md:!bg-transparent"
-                >
-                  <option value="sell">Sell</option>
-                  <option value="rent">Rent</option>
-                </select>
-              </div>
-            </div>
           </div>
           <button className="w-full btn btn-primary md:w-fit">search</button>
         </div>

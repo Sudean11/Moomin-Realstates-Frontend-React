@@ -2,10 +2,12 @@ import { useState,useEffect } from "react";
 import { fetchService } from "../../../services/client-api/fetchService";
 import { property } from "lodash";
 import { postService } from "../../../services/client-api/postService";
+import Offers from "../owner/Offers";
 
 const PropertiesTable = () => {
 
     const [tableProperties, settableProperties] = useState([]);
+    const [reloadData, setReloadData] = useState(false);
 
     const fetchtableProperties = async () => {
         let fetchedtableProperties = await postService.getPendingStatus();
@@ -14,13 +16,15 @@ const PropertiesTable = () => {
     }
     useEffect(()=>{
         fetchtableProperties();
-    },[])
+       
+    },[reloadData])
 
     const handleProperty = async (id) => {
         debugger;
         try {
             const val = await postService.getPostTableAccept(id);
             console.log(val);
+            setReloadData(true);
         } catch (error) {
             console.error("Error fetching properties:", error);
         }
@@ -58,6 +62,7 @@ const PropertiesTable = () => {
                     </tbody>
                 </table>
             </div>
+          
         </div>
         
 

@@ -5,19 +5,14 @@ import
 
 function Header({OpenSidebar}) {
   return (
-    <header className='header'>
-        <div className='menu-icon'>
-            <BsJustify className='icon' onClick={OpenSidebar}/>
-        </div>
-        {/* <div className='header-left'>
-            <BsSearch  className='icon'/>
-        </div> */}
-        <div className='header-right'>
-            <BsFillBellFill className='icon'/>
-            <BsFillEnvelopeFill className='icon'/>
-            
-        </div>
-    </header>
+    <>
+     <header className='flex justify-between items-center mb-4'>
+          <div className='flex items-center'>
+            <BsFillBellFill className='text-3xl mr-4' />
+            <BsFillEnvelopeFill className='text-3xl' />
+          </div>
+        </header>
+    </>
   )
 }
 

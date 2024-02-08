@@ -24,6 +24,7 @@ const Login = () => {
             console.log(payload)
             if(payload.roles[0].authority == "ROLE_CUSTOMER"){
                 alert("You are customer");
+                navigate('/admin-dashboard');
             }else if(payload.roles[0].authority == "ROLE_ADMIN"){
                 // alert("You are Admin")
                

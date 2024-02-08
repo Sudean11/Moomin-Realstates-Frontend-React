@@ -3,6 +3,10 @@ import { useDispatch } from 'react-redux';
 import { toggleOfferFormVisibility } from '../../../features/uiSlice';
 import {  postService } from '../../../services/client-api/postService';
 import { useNavigate, useParams } from 'react-router-dom';
+<<<<<<< HEAD
+=======
+import { authService } from '../../../services/client-api/authService';
+>>>>>>> a918df2209816549974383b7d5e10a1de27af3e4
 
 const OfferForm = () => {
     const dispatch = useDispatch();
@@ -14,16 +18,27 @@ const OfferForm = () => {
 
     const sendMessage = async () => {
         try {
+<<<<<<< HEAD
             const userId = localStorage.getItem("userId");
             const price = priceRef.current.value;
             const message = messageRef.current.value;
             const requestBody = {
                 userId: 21,
+=======
+            const email=authService.getEmailFromLocalStorage();
+            const price = priceRef.current.value;
+            const message = messageRef.current.value;
+            const requestBody = {
+>>>>>>> a918df2209816549974383b7d5e10a1de27af3e4
                 propertyId: 1,
                 buyerStatus: "Pending",
                 price: price,
                 message: message,
+<<<<<<< HEAD
                 email: "sudin@gmail.com"
+=======
+                email: email
+>>>>>>> a918df2209816549974383b7d5e10a1de27af3e4
             };
 
             const response = await postService.postOfferMade(requestBody);

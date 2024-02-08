@@ -40,7 +40,7 @@ const SavedList = () => {
                     <tbody className="table-group-divider">
                         {savedlist.map((property) => (
                             <tr key={property.id}>
-                                <td>{property.name}</td>
+                                <td>{property.id}</td>
                                 <td>{property.price}</td>
                                 <td>{property.area}</td>
                                 <td>{property.status}</td>

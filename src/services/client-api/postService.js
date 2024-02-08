@@ -130,9 +130,28 @@ const userApprove = async (id) => {
 
 
 
+const favourtie = async (fav) => {
+  try {
+    let result = await apiService.post(`/api/v1/favourites`, fav);
+    return result;
+  } catch (error) {
+    return error;
+  }
+};
 
 
 
 export const postService = {
-  login,postOfferMade,getPendingStatus,getPostTableAccept,acceptUserForOwner,acceptOfferForCustomer,rejectUserForOwner,rejectOfferForCustomer,sendNewProperty,createUser,rejectOfferForOwner,rejectContingencyForOwner,userApprove
+  login,
+  postOfferMade,
+  getPendingStatus,
+  getPostTableAccept,
+  acceptUserForOwner,
+  acceptOfferForCustomer,
+  rejectUserForOwner,
+  rejectOfferForCustomer,
+  sendNewProperty,
+  createUser,
+  rejectOfferForOwner,
+  rejectContingencyForOwner,userApprove,favourtie
 };

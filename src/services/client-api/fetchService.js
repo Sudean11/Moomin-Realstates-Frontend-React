@@ -25,6 +25,7 @@ const featuredProperties = async () => {
 const allProperties = async () => {
   try {
     let result = await apiService.get(URL_All_PROPERTY);
+    debugger
     return result;
   } catch (error) {
     return error;

@@ -1,5 +1,6 @@
 import { useState,useEffect } from "react";
 import { fetchService } from "../../../services/client-api/fetchService";
+
 import { property } from "lodash";
 import { postService } from "../../../services/client-api/postService";
 import Offers from "../owner/Offers";
@@ -33,7 +34,7 @@ const PropertiesTable = () => {
 
     return (
 
-        <div>
+        <div className="overflow-x-auto">
             <div className='main-title'>
                 <h1>All Properties</h1>
             </div>

@@ -28,7 +28,7 @@ function Sidebar({ openSidebarToggle, OpenSidebar }, { role }) {
                 <>
                     <ul className='sidebar-list'>
                         <li className='sidebar-list-item'>
-                            <Link to="/admin-dashboard"><BsGrid1X2Fill className='icon' /> Dashboard</Link>
+                            <Link to="/admin"><BsGrid1X2Fill className='icon' /> Dashboard</Link>
 
 
                         </li>
@@ -62,7 +62,7 @@ function Sidebar({ openSidebarToggle, OpenSidebar }, { role }) {
                 <>
                     <ul className='sidebar-list'>
                         <li className='sidebar-list-item'>
-                            <Link to="/admin-dashboard"><BsGrid1X2Fill className='icon' /> Dashboard</Link>
+                            <Link to="/admin"><BsGrid1X2Fill className='icon' /> Dashboard</Link>
 
                         </li>
                         <li className='sidebar-list-item'>

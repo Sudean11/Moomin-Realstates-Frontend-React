@@ -14,13 +14,14 @@ import PageRoutes from "./routes/PageRoutes";
 
 
 import AdminDashboard from "./components/dashboard/admin/AdminDashboard.jsx";
-import Sidebar from "./components/dashboard/Sidebar.jsx";
+import Sidebar from "./components/dashboard/admin/Sidebar.jsx";
 import Header from "./components/dashboard/Header.jsx";
+import OwnerDashboard from "./components/dashboard/owner/OwnerDashboard.jsx";
 
 function App() {
   const [showButton, setShowButton] = useState(false);
   const [showLoader, setShowLoader] = useState(false);
-  const [loggedIn, setloggedIn] = useState(true);
+
 
   const dispatch = useDispatch();
   const route = useLocation();
@@ -36,7 +37,6 @@ function App() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    setloggedIn(true);
   }, [route]);
 
   // Loader when page is loading
@@ -45,13 +45,7 @@ function App() {
   });
 
 
-  if (loggedIn) {
-    return (
-      <AdminDashboard/>
-    );
-
-  }
-
+  
   return (
     <div>
 

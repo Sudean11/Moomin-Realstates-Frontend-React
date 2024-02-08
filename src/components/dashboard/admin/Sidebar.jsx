@@ -5,7 +5,7 @@ import
  from 'react-icons/bs'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
-import {uiStore,updateOwner} from '../../features/uiSlice';
+import {uiStore} from '../../../features/uiSlice';
 
 
 function Sidebar({openSidebarToggle, OpenSidebar},{role}) {
@@ -28,15 +28,15 @@ const dispatch = useDispatch();
         {role === 'admin' && (
         <>
         <ul className='sidebar-list'>
-            <li className='sidebar-list-item' onClick={dispatch(updateOwner({ key: 'Dash', value: true }))}>
+            <li className='sidebar-list-item' >
                 <Link to="/Linkdmin-dashboard"><BsGrid1X2Fill className='icon'/> Dashboard</Link>
                     
                 
             </li>
-            <li className='sidebar-list-item' onClick={dispatch(updateOwner({ key: 'property', value: true }))}>
-                {/* <Link to="/Linkdd-property"> */}
+            <li className='sidebar-list-item' >
+                <Link to="/Linkdd-property">
                     <BsFillArchiveFill className='icon'/> Properties
-                {/* </Link> */}
+                </Link>
             </li>
            
             <li className='sidebar-list-item'>

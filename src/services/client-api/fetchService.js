@@ -54,8 +54,9 @@ const propertiesTable = async() => {
     }
 }
 const offersTable = async() => {
-    const email= await authService.getEmailFromLocalStorage();
+    
     try{
+        const email= await authService.getEmailFromLocalStorage();
         let result = await apiService.get(`api/v1/offer?email=${email}`);
         return result;
     }catch(error){
@@ -63,8 +64,9 @@ const offersTable = async() => {
     }
 }
 const offersTableForCustomer = async() => {
-    const email= await authService.getEmailFromLocalStorage();
+   
 try{
+    const email= await authService.getEmailFromLocalStorage();
     let result = await apiService.get(`/api/v1/offer?email=${email}&customer=true`);
     return result;
 }catch(error){
@@ -73,7 +75,7 @@ try{
 }
 const getPropertyDetailsById = async(id) => {
     try{
-        let result = await apiService.get(`/api/v1/property/:id`);
+        let result = await apiService.get(`/api/v1/property/${id}`);
         return result;
     }catch(error){
         return error;

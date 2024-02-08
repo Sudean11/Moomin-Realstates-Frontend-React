@@ -1,7 +1,7 @@
 import { URL_LOGIN } from "../../config/url";
 import { apiService } from "../apiService";
 import {  } from "../../config/url";
-import { URL_SEND_OFFER_PRICE,URL_TABLE_PENDING,URL_TABLE_ACCEPT } from "../../config/url";
+import { URL_SEND_OFFER_PRICE,URL_TABLE_PENDING,URL_TABLE_ACCEPT,URL_SEND_NWE_PROPERTY } from "../../config/url";
 import { authService } from "./authService";
 
 const login = async (user) => {
@@ -30,8 +30,9 @@ const postOfferMade = async (requestBody) => {
     }
 }
 const getPendingStatus = async() => {
-  const email= await authService.getEmailFromLocalStorage()
+
   try{
+    const email= await authService.getEmailFromLocalStorage()
       let result = await apiService.get(`/api/v1/property/user?email=${email}`);
       return result;
   }catch(error){
@@ -83,6 +84,23 @@ const rejectOfferForCustomer = async(offerid) => {
       return error;
   }
 }
+const rejectOfferForOwner = async(offerid) => {
+  try{
+      let result = await apiService.post(`api/v1/offer/${offerid}/reject`);
+      return result;
+  }catch(error){
+      return error;
+  }
+}
+const sendNewProperty = async(reqBody) => {
+  try{
+ 
+      let result = await apiService.post(URL_SEND_NWE_PROPERTY,reqBody);
+      return result;
+  }catch(error){
+      return error;
+  }
+}
 
 const createUser = async (user) => {
   try {
@@ -95,5 +113,5 @@ const createUser = async (user) => {
 
 
 export const postService = {
-  login,postOfferMade,getPendingStatus,getPostTableAccept,acceptUserForOwner,acceptOfferForCustomer,rejectUserForOwner,rejectOfferForCustomer, createUser
+  login,postOfferMade,getPendingStatus,getPostTableAccept,acceptUserForOwner,acceptOfferForCustomer,rejectUserForOwner,rejectOfferForCustomer,sendNewProperty,createUser,rejectOfferForOwner
 };

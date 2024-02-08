@@ -46,6 +46,7 @@ const Signup = () => {
           };
 
           postService.createUser(userData);
+          navigate("/login");
     }
 
     return (

@@ -26,9 +26,9 @@ const latestProperties = async () => {
     }
 }
 
-const listOffers = async() => {
+const filteredProperties = async (url) =>{
     try{
-        let result = await apiService.get(URL_LIST_OFFERS);
+        let result = await apiService.get(url);
         return result;
     }catch(error){
         return error;
@@ -54,8 +54,6 @@ const userList = async() => {
 }
 
 
-
-
 export const fetchService = {
-    featuredProperties,allProperties,latestProperties,listOffers,propertiesTable,userList
+    featuredProperties,allProperties,latestProperties,filteredProperties, propertiesTable,listOffers,userList
 }

@@ -5,6 +5,7 @@ import CardHoverIcons from "./CardHoverIcons";
 import CardLabels from "./CardLabels";
 
 const SingleProductCardFullWidth = ({
+  id,
   name,
   location,
   price,
@@ -23,7 +24,7 @@ const SingleProductCardFullWidth = ({
 
   const detailsButtonHandler = () => {
     console.log("details button handler");
-    navigate('/propertyDetail', {
+    navigate('/propertyDetail/${id}', {
       name,
       location,
       price,

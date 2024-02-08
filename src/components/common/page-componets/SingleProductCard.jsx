@@ -4,7 +4,7 @@ import CardHoverIcons from "./CardHoverIcons";
 import CardLabels from "./CardLabels";
 import { useNavigate } from "react-router-dom";
 
-const SingleProductCard = ({
+const SingleProductCard = ({id,
   name,
   location,
   price,
@@ -21,7 +21,7 @@ const SingleProductCard = ({
 
   const detailsButtonHandler = () => {
     console.log("details button handler");
-    navigate('/propertyDetail', {
+    navigate('/propertyDetail/${id}', {
       name,
       location,
       price,
@@ -57,7 +57,7 @@ const SingleProductCard = ({
           </div>
         </div>
       </div>
-      <CardLabels purpose={description} distance={distance} />
+      <CardLabels distance={distance} />
       <div className="p-3">
         <Link to="/" className="group-hover:text-primary transition-a">
           <h1 className="text-lg font-bold capitalize">{name}</h1>

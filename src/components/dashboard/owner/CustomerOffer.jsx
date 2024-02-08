@@ -21,6 +21,7 @@ const CustomerOffers = () => {
 
     const handleProperty = async (id) => {
         try {
+            debugger;
             const val = await postService.acceptOfferForCustomer(id);
             if (val.data) {
                 setReloadData(prevState => !prevState);
@@ -47,12 +48,13 @@ const CustomerOffers = () => {
     return (
         <div>
             <div className="main-title">
-                <h1>Latest for sale</h1>
+                <h1>Offers List</h1>
             </div>
             <div className="table table-bordered">
                 <table className="table table-hover">
                     <thead className="table-dark">
                         <tr>
+                        <th scope="col">Offer Id</th>
                             <th scope="col">Properties</th>
                             <th scope="col">Message</th>
                             <th scope="col">Offered Price</th>
@@ -65,8 +67,9 @@ const CustomerOffers = () => {
                     <tbody className="table-group-divider">
                         {listOffers.map((offer) => (
                             <tr key={offer.id}>
+                                 <td>{offer.id}</td>
                                 <td>{offer.property?.name}</td>
-                                <td>{offer.offer_message}</td>
+                                <td>{offer.offerMessage}</td>
                                 <td>{offer.property?.price}</td>
                                 <td>{offer.sellerStatus}</td>
                                 <td>{offer.buyerStatus}</td>
@@ -79,6 +82,7 @@ const CustomerOffers = () => {
                                         <button value={offer.id} onClick={() => handlePropertyReject(offer.id)}>Reject</button></div>
                                     )}
                                 </td>
+                                <td> <button>Message</button></td>
                             </tr>
                         ))}
                     </tbody>

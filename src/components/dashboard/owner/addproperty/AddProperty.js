@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import './AddProperty.css';
 import { postService } from "../../../../services/client-api/postService";
 import { Navigate, useNavigate } from "react-router-dom";
+import { authService } from "../../../../services/client-api/authService";
 
 const AddProperty = () => {
   const navigate=useNavigate();
@@ -22,13 +23,14 @@ const AddProperty = () => {
   const isForSaleRef = useRef();
   const imageRef = useRef();
 
-  function Submit(e) {
+  const Submit=async(e)=> {
     e.preventDefault();
-
+const auth=await authService.getEmailFromLocalStorage();
     const formData = new FormData();
 
 // Append each field to the formData object
 formData.append('name', propertyNameRef.current.value);
+formData.append('email', auth);
 formData.append('description', descriptionRef.current.value);
 formData.append('area', addressRef.current.value);
 formData.append('street', streetRef.current.value);

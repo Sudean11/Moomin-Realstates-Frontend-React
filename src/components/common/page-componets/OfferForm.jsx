@@ -10,28 +10,42 @@ const OfferForm = () => {
     const priceRef = useRef(null);
     const messageRef = useRef(null);
     const [isButtonDisabled, setIsButtonDisabled] = useState(false);
-    const { value } = useParams();
+    const { id } = useParams();
     const navigate = useNavigate();
 
     const sendMessage = async () => {
         try {
-            const email=authService.getEmailFromLocalStorage();
-            const price = priceRef.current.value;
-            const message = messageRef.current.value;
-            const requestBody = {
-                propertyId: 1,
-                buyerStatus: "Pending",
-                price: price,
-                message: message,
-                email: email
-            };
-
-            const response = await postService.postOfferMade(requestBody);
-            navigate('/');
+            debugger;
+            const email= await authService.getEmailFromLocalStorage();
+            const role = await authService.getRoleFromLocalStorage();
+            if(email==null)
+            {
+                navigate('/login',{ replace: true });
+            }
+           else{
+            if(role == "ROLE_CUSTOMER"){
+                const price = priceRef.current.value;
+                const message = messageRef.current.value;
+                const requestBody = {
+                    propertyId: id,
+                    buyerStatus: "Pending",
+                    price: price,
+                    message: message,
+                    email: email
+                };
+    
+                const response = await postService.postOfferMade(requestBody);
+                navigate('/', { replace: true });
+            }else{
+                alert("Need to be A customer to carry out this action");
+            }
+        
+           }
         } catch (error) {
             console.error("Error sending offer:", error);
         }
     };
+ 
 
     return (
         <div className="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm flex justify-center items-center">

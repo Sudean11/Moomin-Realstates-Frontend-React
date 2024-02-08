@@ -107,7 +107,8 @@ const listOffers = async () => {
 
 const offersHistory = async () => {
     try {
-        let result = await apiService.get(URL_OFFERS_HISTORY);
+   const email= await authService.getEmailFromLocalStorage();
+        let result = await apiService.get(`/api/v1/offer/history?email=${email}`);
         return result;
     } catch (error) {
         return error;
@@ -116,7 +117,8 @@ const offersHistory = async () => {
 
 const usermessage = async () => {
   try {
-    let result = await apiService.get(URL_USER_MESSAGE);
+    const email= await authService.getEmailFromLocalStorage();
+    let result = await apiService.get(`/api/v1/message?email=${email}`);
     return result;
   }catch (error) {
     return error;

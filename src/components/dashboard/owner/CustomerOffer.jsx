@@ -81,6 +81,7 @@ const CustomerOffers = () => {
                                         <br/>
                                         <button value={offer.id} onClick={() => handlePropertyReject(offer.id)}>Reject</button></div>
                                     )}
+                                    
                                 </td>
                                 <td> <button>Message</button></td>
                             </tr>

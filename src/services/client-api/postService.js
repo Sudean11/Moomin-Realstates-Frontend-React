@@ -92,6 +92,14 @@ const rejectOfferForOwner = async(offerid) => {
       return error;
   }
 }
+const rejectContingencyForOwner = async(id) => {
+  try{
+      let result = await apiService.post(`api/v1/property/${id}/cancel-contingency`);
+      return result;
+  }catch(error){
+      return error;
+  }
+}
 const sendNewProperty = async(reqBody) => {
   try{
  
@@ -113,5 +121,5 @@ const createUser = async (user) => {
 
 
 export const postService = {
-  login,postOfferMade,getPendingStatus,getPostTableAccept,acceptUserForOwner,acceptOfferForCustomer,rejectUserForOwner,rejectOfferForCustomer,sendNewProperty,createUser,rejectOfferForOwner
+  login,postOfferMade,getPendingStatus,getPostTableAccept,acceptUserForOwner,acceptOfferForCustomer,rejectUserForOwner,rejectOfferForCustomer,sendNewProperty,createUser,rejectOfferForOwner,rejectContingencyForOwner
 };

@@ -47,6 +47,7 @@ const Offers = () => {
             console.error("Error accepting offer:", error);
         }
     };
+
     return (
         <div>
             <div className='main-title'>
@@ -62,6 +63,7 @@ const Offers = () => {
                             <th scope="col">Offered Price</th>
                             <th scope="col">SellerStatus</th>
                             <th scope="col">BuyerStatus</th>
+                            <th scope="col">Action</th>
 
                         </tr>
                     </thead>
@@ -78,13 +80,12 @@ const Offers = () => {
                                 {/* <td><button value={offer.email} onClick={(event) => handleProperty(event.target.value)}>Accept</button></td> */}
                                 {offer.sellerStatus === null && (
                                     <div>
-                                        <button value={offer.id} onClick={() => handlePropertyAccept(offer.id)}>Accept</button>
+                                        <button value={offer.id} onClickS={() => handlePropertyAccept(offer.id)}>Accept</button>
                                         <hr />
                                         <button value={offer.id} onClick={() => handlePropertyReject(offer.id)}>Reject</button>
                                     </div>
                                 )}
-
-                            </tr>
+                             </tr>
                         ))}
                     </tbody>
                 </table>

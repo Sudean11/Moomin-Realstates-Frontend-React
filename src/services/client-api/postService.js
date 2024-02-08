@@ -130,9 +130,17 @@ const userApprove = async (id) => {
 
 
 
+const sendMessageswithOfferIdFromOwner = async (reqBody) => {
+  try {
+    let result = await apiService.post(`/api/v1/message`,reqBody);
+    return result;
+  } catch (error) {
+    return error;
+  }
+};
 
 
 
 export const postService = {
-  login,postOfferMade,getPendingStatus,getPostTableAccept,acceptUserForOwner,acceptOfferForCustomer,rejectUserForOwner,rejectOfferForCustomer,sendNewProperty,createUser,rejectOfferForOwner,rejectContingencyForOwner,userApprove
+  login,postOfferMade,getPendingStatus,getPostTableAccept,acceptUserForOwner,acceptOfferForCustomer,rejectUserForOwner,rejectOfferForCustomer,sendNewProperty,createUser,rejectOfferForOwner,rejectContingencyForOwner,userApprove,sendMessageswithOfferIdFromOwner
 };

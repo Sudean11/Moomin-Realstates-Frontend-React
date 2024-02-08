@@ -1,5 +1,7 @@
 
-
+form {
+  width: 100%;
+}
 .custom-input {
   height: 40px; /* or any specific height you want */
   border: 2px solid #c0c0dc; /* Bootstrap's default border color */
@@ -9,6 +11,7 @@
   flex-direction: column;
   justify-content: center;
   flex: 2px;
+  width: 100%;
 }
 
 .login-title {
@@ -19,18 +22,14 @@
   font-weight: bold;
 }
 
-.box {
-  display: flex;
-  justify-content: center;
+.box-add {
   background-color: #ffffff;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 400px;
+  max-width: 600px; /* Adjusted for better responsiveness */
+  width: 100%; /* Ensure it's responsive */
   box-sizing: border-box;
-  align-items: center;
-
- 
 }
 
 .row {
@@ -42,3 +41,23 @@
   z-index: 1030; /* Bootstrap default for navbar */
 }
 
+.container-add {
+  margin-top: 3%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; 
+}
+
+
+.spacer {
+  margin-bottom: 40px; /* Adjust the space as needed */
+}
+
+.form-label {
+  color: black
+}
+
+.button {
+  text-align: center;
+}

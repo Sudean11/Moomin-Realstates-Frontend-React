@@ -5,9 +5,12 @@ import { Property } from "../pages";
 import PropertyDetail from "../pages/PropertyDetail";
 import Login from "../components/Login/Login"
 import Signup from "../components/signup/Signup.js"
-import AddProperty from "../components/addproperty/AddProperty.js";
+import AddProperty from "../components/dashboard/owner/addproperty/AddProperty.js";
 import AdminDashboard from "../components/dashboard/admin/AdminDashboard.jsx";
 import OwnerDashboard from "../components/dashboard/owner/OwnerDashboard.jsx";
+import PropertiesTable from "../components/dashboard/admin/PropertiesTable.jsx";
+import Offers from "../components/dashboard/owner/Offers.jsx";
+import Users from "../components/dashboard/admin/Users.jsx";
 
 
 
@@ -23,6 +26,9 @@ const PageRoutes = () => {
         <Route path="/add-property" element={<AddProperty />} />
         <Route path="/admin-dashboard" element ={ <AdminDashboard/>}/>
         <Route path="/owner-dashboard" element ={ <OwnerDashboard/>}/>
+        <Route path="/propertiesTable" element ={<PropertiesTable/>}/>
+        <Route path="/offers" element ={<Offers/>}/>
+        <Route path="/User" element={<Users/>}/>
       </Routes>
     </>
   );

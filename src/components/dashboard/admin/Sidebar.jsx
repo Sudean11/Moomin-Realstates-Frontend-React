@@ -4,16 +4,12 @@ import
   BsListCheck,BsPersonCircle, BsMenuButtonWideFill, BsFillGearFill,BsBoxArrowRight }
  from 'react-icons/bs'
 import { Link } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux';
-import {uiStore} from '../../../features/uiSlice';
 
 
-function Sidebar({openSidebarToggle, OpenSidebar},{role}) {
 
-const {ownerDash} = useSelector(uiStore);
-const dispatch = useDispatch();
+function Sidebar({openSidebarToggle, OpenSidebar}) {
 
-    role="owner"
+
   return (
 
     <aside id="sidebar" className="">
@@ -25,27 +21,22 @@ const dispatch = useDispatch();
             <span className='icon close_icon' onClick={OpenSidebar}>X</span>
         </div>
         <hr/>
-        {role === 'admin' && (
+       
         <>
         <ul className='sidebar-list'>
             <li className='sidebar-list-item' >
-                <Link to="/Linkdmin-dashboard"><BsGrid1X2Fill className='icon'/> Dashboard</Link>
+                <Link to="/admin-dashboard"><BsGrid1X2Fill className='icon'/> Dashboard</Link>
                     
                 
             </li>
             <li className='sidebar-list-item' >
-                <Link to="/Linkdd-property">
+                <Link to="/propertiesTable">
                     <BsFillArchiveFill className='icon'/> Properties
                 </Link>
             </li>
            
             <li className='sidebar-list-item'>
-                <Link to="">
-                    <BsPeopleFill className='icon'/> Customers
-                </Link>
-            </li>
-            <li className='sidebar-list-item'>
-                <Link to="">
+                <Link to="/user">
                     <BsListCheck className='icon'/> Manage Owner
                 </Link>
             </li>
@@ -57,39 +48,12 @@ const dispatch = useDispatch();
       </div>
         </ul>
         </>
-      )}
-
-{role === 'owner' && (
-        <>
-        <ul className='sidebar-list'>
-            <li className='sidebar-list-item'>
-                <Link to="/Linkdmin-dashboard"><BsGrid1X2Fill className='icon'/> Dashboard</Link>
-                 
-            </li>
-            <li className='sidebar-list-item'>
-                <Link to="/Linkdd-property">
-                    <BsFillArchiveFill className='icon'/> Properties
-                </Link> 
-            </li>
-           
-            <li className='sidebar-list-item'>
-                <Link to="">
-                    <BsPeopleFill className='icon'/> Offers
-                </Link>
-            </li>
-          
-
-            <div className="sidebar-logout">
-        <Link to="/logout" className="sidebar-link">
-          <BsBoxArrowRight className='icon'/> Logout
-        </Link>
-      </div>
-        </ul>
-        </>
-      )}
+     
 
 
-{role === 'customer' && (
+
+
+{/* {role === 'customer' && (
         <>
         <ul className='sidebar-list'>
             <li className='sidebar-list-item'>
@@ -117,7 +81,7 @@ const dispatch = useDispatch();
       </div>
         </ul>
         </>
-      )}
+      )} */}
     </aside>
   )
 }

@@ -15,7 +15,7 @@ const Offers = () => {
     return (
         <div>
             <div className='main-title'>
-                <h1 >latest for sale</h1>
+                <h1 >All Offers</h1>
             </div>
             <div  className="table table-bordered">
                 <table className="table table-hover ">

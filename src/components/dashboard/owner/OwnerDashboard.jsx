@@ -1,7 +1,7 @@
 import { useState } from "react"
-import Home from "../Home"
-import Sidebar from "../admin/Sidebar"
 import Header from "../Header"
+import OwnerSidebar from "./OwnerSidebar"
+import OwnerHome from "./OwnerHome"
 
 
 const OwnerDashboard =()=> {
@@ -16,8 +16,8 @@ const OwnerDashboard =()=> {
     return (
         <div className='grid-container'>
         <Header OpenSidebar={OpenSidebar}/>
-        <Sidebar role={userRole} openSidebarToggle={openSidebarToggle} OpenSidebar={OpenSidebar}/>
-        <Home/>
+        <OwnerSidebar openSidebarToggle={openSidebarToggle} OpenSidebar={OpenSidebar}/>
+        <OwnerHome/>
         </div>
     )
 }

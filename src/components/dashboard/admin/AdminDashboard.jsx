@@ -3,7 +3,7 @@ import Header from "../Header";
 import Sidebar from "./Sidebar";
 import Home from "../Home";
 import { useState } from "react";
-import "./AdminDashboard.css"
+import "../dashboard.css";
 
 const AdminDashboard =()=> {
 

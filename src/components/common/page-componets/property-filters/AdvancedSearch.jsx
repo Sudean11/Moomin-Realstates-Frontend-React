@@ -20,19 +20,19 @@ const AdvancedSearch = () => {
 
     if (category) queryString += `?category=${category}`;
     
-    if(queryString == ''){
+    if(queryString === ''){
       if (priceRange) queryString += `?priceRange=${priceRange}`;
     }else{
       if (priceRange) queryString += `&priceRange=${priceRange}`;
     }
     
-    if(queryString == ''){
+    if(queryString === ''){
       if (bathrooms) queryString += `?bathrooms=${bathrooms}`;
     }else{
       if (bathrooms) queryString += `&bathrooms=${bathrooms}`;
 
     }
-    if(queryString == ''){
+    if(queryString === ''){
       if (beds) queryString += `?beds=${beds}`;
     }else{
       if (beds) queryString += `&beds=${beds}`;

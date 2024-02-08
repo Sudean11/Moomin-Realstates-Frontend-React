@@ -6,10 +6,15 @@ BsListCheck, BsPersonCircle, BsMenuButtonWideFill, BsFillGearFill, BsBoxArrowRig
     from 'react-icons/bs'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
+import { authService } from '../../../services/client-api/authService';
 
 
 
 function OwnerSidebar({ openSidebarToggle, OpenSidebar } ) {
+
+    const logout = () =>{
+        authService.logout();
+    }
 
     return (
 
@@ -48,7 +53,7 @@ function OwnerSidebar({ openSidebarToggle, OpenSidebar } ) {
 
 
                         <div className="sidebar-logout">
-                            <Link to="/logout" className="sidebar-link">
+                            <Link to="/" className="sidebar-link" onClick={logout}>
                                 <BsBoxArrowRight className='icon' /> Logout
                             </Link>
                         </div>
@@ -58,6 +63,7 @@ function OwnerSidebar({ openSidebarToggle, OpenSidebar } ) {
 
         </aside>
     )
+
 }
 
 export default OwnerSidebar;

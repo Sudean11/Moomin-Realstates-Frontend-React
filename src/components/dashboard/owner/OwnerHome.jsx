@@ -10,7 +10,7 @@ function OwnerHome() {
   return (
    
     <main className='main-container'>
-        <div><Offers/></div>
+        <div><Offers></Offers></div>
    </main>
   )
 }

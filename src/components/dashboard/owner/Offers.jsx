@@ -62,7 +62,7 @@ const Offers = () => {
                                 <td>{offer.sellerStatus}</td>
                                 <td>{offer.buyerStatus}</td>
                                 <td>{offer.property.name}</td>
-                                <td><button value={offer.id} onClick={(event) => handleProperty(event.target.value)}>Accept</button></td>
+                                <td><button value={offer.email} onClick={(event) => handleProperty(event.target.value)}>Accept</button></td>
                             </tr>
                         ))}
                     </tbody>

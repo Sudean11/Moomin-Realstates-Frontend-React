@@ -50,7 +50,7 @@ function Sidebar({ openSidebarToggle, OpenSidebar }, { role }) {
                         </li>
 
                         <div className="sidebar-logout">
-                            <a href="/logout" className="sidebar-link">
+                            <a href="/" className="sidebar-link" >
                                 <BsBoxArrowRight className='icon' /> Logout
                             </a>
                         </div>

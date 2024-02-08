@@ -1,14 +1,17 @@
 import React from 'react'
 import { BsFillArchiveFill, BsFillGrid3X3GapFill, BsPeopleFill, BsFillBellFill }
   from 'react-icons/bs'
+import Offers from './owner/Offers'
+import PropertiesTable from './admin/PropertiesTable'
 
 
-function Home() {
-
-
+function Home({role}) {
+role="admin";
 
   return (
+   
     <main className='main-container'>
+         {role === 'admin' && (
       <div className='main-cards'>
             <div className='card'>
                 <div className='card-inner'>
@@ -34,11 +37,15 @@ function Home() {
                 </div>
                 <h1>42</h1>
             </div>
+            
         </div>
-      
-      
-
-    </main>
+         )}
+    
+    {role === 'owner' && ( 
+        <div><Offers/></div>
+       
+    )}
+   </main>
   )
 }
 

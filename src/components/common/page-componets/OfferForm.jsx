@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { toggleOfferFormVisibility } from '../../../features/uiSlice';
 import {  postService } from '../../../services/client-api/postService';
 import { useNavigate, useParams } from 'react-router-dom';
+import { authService } from '../../../services/client-api/authService';
 
 const OfferForm = () => {
     const dispatch = useDispatch();
@@ -14,16 +15,15 @@ const OfferForm = () => {
 
     const sendMessage = async () => {
         try {
-            const userId = localStorage.getItem("userId");
+            const email=authService.getEmailFromLocalStorage();
             const price = priceRef.current.value;
             const message = messageRef.current.value;
             const requestBody = {
-                userId: 21,
                 propertyId: 1,
                 buyerStatus: "Pending",
                 price: price,
                 message: message,
-                email: "sudin@gmail.com"
+                email: email
             };
 
             const response = await postService.postOfferMade(requestBody);

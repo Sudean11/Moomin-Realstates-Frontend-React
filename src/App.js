@@ -39,12 +39,6 @@ function App() {
   });
 
 
-  // if (loggedIn) {
-  //   return (
-  //     <AdminDashboard/>
-  //   );
-
-  // }
   return (
     <div>
       {showLoader && <Loader />}

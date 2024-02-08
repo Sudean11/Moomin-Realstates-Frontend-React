@@ -14,7 +14,7 @@ const Users = () => {
 
 
     return (
-        <div>
+        <div className="overflow-x-auto">
             <div className='main-title'>
                 <h1>Users to approve</h1>
             </div>

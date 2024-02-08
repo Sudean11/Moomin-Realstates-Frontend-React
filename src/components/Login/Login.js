@@ -23,7 +23,7 @@ const Login = () => {
             navigate('/client');
         }else if(role == "ROLE_ADMIN"){
             // alert("You are Admin")
-            navigate('/admin-dashboard')
+            navigate('/admin')
            
         }else if(role == "ROLE_OWNER"){
             // alert('You are Owner'); if 
@@ -46,7 +46,7 @@ const Login = () => {
                 navigate('/client');
             }else if(payload.roles[0].authority == "ROLE_ADMIN"){
                 // alert("You are Admin")
-                navigate('/admin-dashboard')
+                navigate('/admin')
                
             }else{
                 // alert('You are Owner');

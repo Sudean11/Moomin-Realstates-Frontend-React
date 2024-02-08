@@ -11,6 +11,7 @@ const initialState = {
   isFilterMenuOpen: false,
   activeImageIndex: 0,
   isOfferFormVisible: false,
+  isMessageUserFormVisible:false,
   
 
 };
@@ -53,6 +54,9 @@ const uiSlice = createSlice({
     toggleOfferFormVisibility(state) {
       state.isOfferFormVisible = !state.isOfferFormVisible;
     },
+    toggleMessageUserFormVisibility(state){
+      state.isMessageUserFormVisible = !state.isMessageUserFormVisible;
+    }
    
     
   },
@@ -73,4 +77,5 @@ export const {
   closeFilterMenu,
   setActiveImageIndex,
   toggleOfferFormVisibility,
+  toggleMessageUserFormVisibility,
 } = uiSlice.actions;

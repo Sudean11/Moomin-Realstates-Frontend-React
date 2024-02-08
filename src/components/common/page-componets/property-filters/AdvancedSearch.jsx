@@ -9,6 +9,9 @@ const AdvancedSearch = () => {
   const [priceRange, setPriceRange] = useState("");
   const [bathrooms, setBathrooms] = useState("");
   const [beds, setBeds] = useState("");
+  const [city,setCity] = useState("");
+  const [state,setState] = useState("");
+  const [zipCode,setZipCode] = useState("");
   const dispatch = useDispatch();
 
 
@@ -19,22 +22,39 @@ const AdvancedSearch = () => {
     let queryString = '';
 
     if (category) queryString += `?category=${category}`;
-    
-    if(queryString === ''){
-      if (priceRange) queryString += `?priceRange=${priceRange}`;
+
+    if(queryString ===''){
+      if(city) queryString +=`?city=${city}`;
     }else{
+      if(city) queryString +=`&city=${city}`;
+    }
+
+    if(queryString ===''){
+      if(state) queryString +=`?state=${state}`;
+    }else{
+      if(state) queryString +=`&state=${state}`;
+    }
+    if(queryString ===''){
+      if(zipCode) queryString +=`?zipCode=${zipCode}`;
+    }else{
+      if(zipCode) queryString +=`&zipCode=${zipCode}`;
+    }
+
+    if (queryString === '') {
+      if (priceRange) queryString += `?priceRange=${priceRange}`;
+    } else {
       if (priceRange) queryString += `&priceRange=${priceRange}`;
     }
-    
-    if(queryString === ''){
+
+    if (queryString === '') {
       if (bathrooms) queryString += `?bathrooms=${bathrooms}`;
-    }else{
+    } else {
       if (bathrooms) queryString += `&bathrooms=${bathrooms}`;
 
     }
-    if(queryString === ''){
+    if (queryString === '') {
       if (beds) queryString += `?beds=${beds}`;
-    }else{
+    } else {
       if (beds) queryString += `&beds=${beds}`;
     }
 
@@ -44,12 +64,40 @@ const AdvancedSearch = () => {
     dispatch(getCurrentItems(result))
   };
 
-  
+
 
   return (
     <div className="p-3 border dark:border-dark">
       <h1 className="font-semibold">Advanced Search</h1>
       <form onSubmit={handleSubmit}>
+        <div className="mt-3">
+          <input
+            type="text"
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
+            placeholder="City"
+            className="filter"
+          />
+        </div>
+        <div className="mt-3">
+          <input
+            type="text"
+            value={state}
+            onChange={(e) => setState(e.target.value)}
+            placeholder="State"
+            className="filter"
+          />
+        </div>
+        <div className="mt-3">
+          <input
+            type="text"
+            value={zipCode}
+            onChange={(e) => setZipCode(e.target.value)}
+            placeholder="Zip Code"
+            className="filter"
+          />
+        </div>
+
         <div className="mt-3">
           <select
             value={category}

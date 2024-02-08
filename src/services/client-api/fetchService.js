@@ -7,6 +7,8 @@ import {
   URL_LIST_OFFERS,
   URL_TABLE_PROPERTIES,
   URL_USER_LIST,
+  URL_OFFERS_HISTORY,
+  URL_USER_MESSAGE
 } from "../../config/url";
 import { apiService } from "../apiService";
 import { authService } from "./authService";
@@ -54,8 +56,9 @@ const propertiesTable = async() => {
     }
 }
 const offersTable = async() => {
-    const email= await authService.getEmailFromLocalStorage();
+    
     try{
+        const email= await authService.getEmailFromLocalStorage();
         let result = await apiService.get(`api/v1/offer?email=${email}`);
         return result;
     }catch(error){
@@ -63,8 +66,9 @@ const offersTable = async() => {
     }
 }
 const offersTableForCustomer = async() => {
-    const email= await authService.getEmailFromLocalStorage();
+   
 try{
+    const email= await authService.getEmailFromLocalStorage();
     let result = await apiService.get(`/api/v1/offer?email=${email}&customer=true`);
     return result;
 }catch(error){
@@ -73,7 +77,7 @@ try{
 }
 const getPropertyDetailsById = async(id) => {
     try{
-        let result = await apiService.get(`/api/v1/property/:id`);
+        let result = await apiService.get(`/api/v1/property/${id}`);
         return result;
     }catch(error){
         return error;
@@ -101,6 +105,24 @@ const listOffers = async () => {
   }
 };
 
+const offersHistory = async () => {
+    try {
+        let result = await apiService.get(URL_OFFERS_HISTORY);
+        return result;
+    } catch (error) {
+        return error;
+    }
+};
+
+const usermessage = async () => {
+  try {
+    let result = await apiService.get(URL_USER_MESSAGE);
+    return result;
+  }catch (error) {
+    return error;
+  }
+};
+
 
 
 export const fetchService = {
@@ -109,6 +131,7 @@ export const fetchService = {
   latestProperties,
   listOffers,
   filteredProperties,
-  propertiesTable,offersTable,offersTableForCustomer,getPropertyDetailsById
+  propertiesTable,offersTable,offersTableForCustomer,getPropertyDetailsById,
+  offersHistory,usermessage
 };
 

@@ -16,33 +16,45 @@ const Offers = () => {
     const [reloadData, setReloadData] = useState(false);
     debugger;
 
-    const handleProperty = async (id) => {
-        
+    const handlePropertyAccept = async (id) => {
+
         try {
             const val = await postService.acceptUserForOwner(id);
-            if(val.data)
-            {
+            if (val.data) {
                 console.log(val);
                 setReloadData(true);
             }
-            else
-            {
+            else {
                 alert("There is a pending offer");
 
             }
-            
+
         } catch (error) {
             console.error("Error fetching properties:", error);
         }
     }
+
+
+    const handlePropertyReject = async (id) => {
+        try {
+            const val = await postService.rejectOfferForOwner(id);
+            if (val.data) {
+                setReloadData(prevState => !prevState);
+            } else {
+                alert("There is a pending offer");
+            }
+        } catch (error) {
+            console.error("Error accepting offer:", error);
+        }
+    };
     return (
         <div>
             <div className='main-title'>
                 <h1 >All Offers</h1>
             </div>
-            <div  className="table table-bordered">
+            <div className="table table-bordered">
                 <table className="table table-hover ">
-                    <thead class="table-dark "> 
+                    <thead class="table-dark ">
                         <tr>
                             <th scope="col">User</th>
                             <th scope="col">Properties</th>
@@ -50,7 +62,7 @@ const Offers = () => {
                             <th scope="col">Offered Price</th>
                             <th scope="col">SellerStatus</th>
                             <th scope="col">BuyerStatus</th>
-                            <th scope="col">Property Name</th>
+
                         </tr>
                     </thead>
                     <tbody className="table-group-divider">
@@ -58,11 +70,20 @@ const Offers = () => {
                             <tr key={offer.id}>
                                 <td>{offer.user?.email}</td>
                                 <td>{offer.property?.name}</td>
+                                <td>{offer.offerMessage}</td>
                                 <td>{offer.property?.price}</td>
                                 <td>{offer.sellerStatus}</td>
                                 <td>{offer.buyerStatus}</td>
-                                <td>{offer.property.name}</td>
-                                <td><button value={offer.email} onClick={(event) => handleProperty(event.target.value)}>Accept</button></td>
+
+                                {/* <td><button value={offer.email} onClick={(event) => handleProperty(event.target.value)}>Accept</button></td> */}
+                                {offer.sellerStatus === null && (
+                                    <div>
+                                        <button value={offer.id} onClick={() => handlePropertyAccept(offer.id)}>Accept</button>
+                                        <hr />
+                                        <button value={offer.id} onClick={() => handlePropertyReject(offer.id)}>Reject</button>
+                                    </div>
+                                )}
+
                             </tr>
                         ))}
                     </tbody>

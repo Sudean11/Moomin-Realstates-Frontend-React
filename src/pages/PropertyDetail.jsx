@@ -4,6 +4,9 @@ import '../index.css';
 import { OfferForm } from '../components/common/page-componets';
 import { useSelector, useDispatch } from 'react-redux';
 import { uiStore, setActiveImageIndex, toggleOfferFormVisibility } from '../features/uiSlice';
+import { Navigate, useNavigate, useParams } from 'react-router-dom';
+import { fetchService } from '../services/client-api/fetchService';
+ 
 
 const ProductDetails = ({
   name,
@@ -19,7 +22,7 @@ const ProductDetails = ({
   textLength,
   showLabels,
 }) => {
-
+const {id}=useParams();
   const [pictures, setPictures] = useState([
     "/images/property (17).jpg",
     "/images/property (18).jpg",
@@ -34,6 +37,7 @@ const ProductDetails = ({
 
   const { activeImageIndex } = useSelector(uiStore);
   const { isOfferFormVisible } = useSelector(uiStore);
+  const [propertyData, setPropertyData] = useState({});
 
   const handleImageClick = (index) => {
     dispatch(setActiveImageIndex(index));
@@ -44,16 +48,19 @@ const ProductDetails = ({
   };
 
   useEffect(() => {
-    console.log("check")
-    console.log(name,
-      location,
-      price,
-      distance,
-      purpose,
-      number_of_beds,
-      number_of_bathrooms,
-      dimensions);
-  }, [activeImageIndex]);
+  getPropertyDetails(id);
+  }, []);
+  const getPropertyDetails=async()=>{
+try{
+  const response=await fetchService.getPropertyDetailsById(id);
+  setPropertyData(response);
+}
+catch(e)
+{
+  console.log(e);
+}
+  }
+  debugger;
 
   return (
     <div className="container mx-auto py-8 px-4 md:flex md:flex-wrap   pt-16 bg-zinc-100 border-2 border-gray-300 rounded-lg " style={{ maxWidth: 1090 }}>
@@ -71,30 +78,30 @@ const ProductDetails = ({
       </div>
 
       <div className="md:w-1/2 pl-4 pt-6 md:pl-8">
-        <div className="text-2xl font-bold mb-2">$425,000</div>
+        <div className="text-2xl font-bold mb-2">${propertyData.price}</div>
         <div className="flex-align-center gap-x-2 text-2xl font-bold mb-4">
           <BiMap />
-          <p>Fairfield Iowa</p>
+          <p>{propertyData.name}</p>
         </div>
         <div className="flex mt-3 gap-x-14">
           <div className="flex-align-center gap-x-3">
             <div className="icon-box !w-7 !h-7 bg-primary/20 hover:!bg-primary/40 text-primary">
               <BiBed />
             </div>
-            <p className="text-sm">{number_of_beds} 10 Beds</p>
+            <p className="text-sm">{propertyData.bedroom} Bedrooms </p>
           </div>
           <div className="flex-align-center gap-x-3">
             <div className="icon-box !w-7 !h-7 bg-primary/20 hover:!bg-primary/40 text-primary">
               <BiTab />
             </div>
-            <p className="text-sm">{number_of_bathrooms}3 Bathrooms</p>
+            <p className="text-sm">{propertyData.bathroom} Bathrooms</p>
           </div>
           <div className="flex-align-center gap-x-3">
             <div className="icon-box !w-7 !h-7 bg-primary/20 hover:!bg-primary/40 text-primary">
               <BiMapAlt />
             </div>
-            <p className="text-sm">{dimensions} 57988 sq. ft.</p>
-          </div>
+            <p className="text-sm">{propertyData.area}</p>
+          </div> 
 
         </div>
       </div>

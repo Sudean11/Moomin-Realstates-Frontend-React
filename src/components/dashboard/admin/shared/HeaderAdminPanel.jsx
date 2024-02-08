@@ -1,9 +1,9 @@
 import { Popover } from '@headlessui/react'
 import React from 'react'
 import { HiOutlineChatAlt, HiOutlineSearch, HiOutlineBell } from 'react-icons/hi';
+import classNames from 'classnames';
 
-
-const Header = () => {
+const HeaderAdminPanel = () => {
     return (
         <div className='bg-white h-16 px-4 flex justify-between items-center border-b border-color-black-900'>
             <div className='relative'>
@@ -29,4 +29,4 @@ const Header = () => {
     )
 }
 
-export default Header
+export default HeaderAdminPanel

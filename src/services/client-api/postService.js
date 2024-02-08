@@ -1,7 +1,7 @@
 import { URL_LOGIN } from "../../config/url";
 import { apiService } from "../apiService";
 import {  } from "../../config/url";
-import { URL_SEND_OFFER_PRICE } from "../../config/url";
+import { URL_SEND_OFFER_PRICE,URL_TABLE_PENDING,URL_TABLE_ACCEPT } from "../../config/url";
 
 const login = async (user) => {
   try {
@@ -27,7 +27,25 @@ const postOfferMade = async (requestBody) => {
         return error;
     }
 }
+const getPendingStatus = async() => {
+  try{
+      let result = await apiService.get(URL_TABLE_PENDING);
+      return result;
+  }catch(error){
+      return error;
+  }
+}
+const getPostTableAccept = async(id) => {
+  debugger;
+  try{
+ 
+      let result = await apiService.post(`/api/v1/property/${id}/delete`);
+      return result;
+  }catch(error){
+      return error;
+  }
+}
 
 export const postService = {
-  login,postOfferMade
+  login,postOfferMade,getPendingStatus,getPostTableAccept
 };

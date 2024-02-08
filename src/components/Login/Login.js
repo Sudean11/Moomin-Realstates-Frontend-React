@@ -22,13 +22,14 @@ const Login = () => {
             const decodedPayload = atob(payloadBase64);
             const payload = JSON.parse(decodedPayload);
             console.log(payload)
-            debugger
             if(payload.roles[0].authority == "ROLE_CUSTOMER"){
                 alert("You are customer");
             }else if(payload.roles[0].authority == "ROLE_ADMIN"){
-                alert("You are Admin")
+                // alert("You are Admin")
+               
             }else{
-                alert('You are Owner');
+                // alert('You are Owner');
+                navigate('/admin-dashboard');
             }
         }else{
             alert("wrong credentials");

@@ -1,16 +1,35 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { fetchService } from "../../../services/client-api/fetchService";
 import { property } from "lodash";
+import { postService } from "../../../services/client-api/postService";
+import Offers from "../owner/Offers";
 
 const PropertiesTable = () => {
 
     const [tableProperties, settableProperties] = useState([]);
+    const [reloadData, setReloadData] = useState(false);
 
     const fetchtableProperties = async () => {
-        let fetchedtableProperties = await fetchService.propertiesTable();
+        let fetchedtableProperties = await postService.getPendingStatus();
         settableProperties(fetchedtableProperties);
         console.log(fetchedtableProperties);
     }
+    useEffect(()=>{
+        fetchtableProperties();
+       
+    },[reloadData])
+
+    const handleProperty = async (id) => {
+        debugger;
+        try {
+            const val = await postService.getPostTableAccept(id);
+            console.log(val);
+            setReloadData(true);
+        } catch (error) {
+            console.error("Error fetching properties:", error);
+        }
+    }
+    
 
     return (
 
@@ -31,16 +50,21 @@ const PropertiesTable = () => {
                     <tbody className="table-group-divider">
                         {tableProperties.map((property) => (
                             <tr key={property.id}>
-                                <td>{property.property}</td>
-                                <td>{property.location}</td>
-                                <td>{property.owner}</td>
-                                <td>{property.status}</td>
+                                <td>{property.name}</td>
+                                <td>{property.price}</td>
+                                <td>{property.area}</td>
+                                <td>
+                                <button value={property.id} onClick={(event) => handleProperty(event.target.value)}>Click me</button>
+                                </td>
+
                             </tr>
                         ))}
                     </tbody>
                 </table>
             </div>
+          
         </div>
+        
 
 
     )

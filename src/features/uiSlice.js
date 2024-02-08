@@ -11,6 +11,8 @@ const initialState = {
   isFilterMenuOpen: false,
   activeImageIndex: 0,
   isOfferFormVisible: false,
+  
+
 };
 
 const uiSlice = createSlice({
@@ -51,6 +53,8 @@ const uiSlice = createSlice({
     toggleOfferFormVisibility(state) {
       state.isOfferFormVisible = !state.isOfferFormVisible;
     },
+   
+    
   },
 });
 

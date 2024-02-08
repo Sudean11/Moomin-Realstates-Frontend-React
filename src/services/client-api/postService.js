@@ -1,5 +1,7 @@
 import { URL_LOGIN } from "../../config/url";
 import { apiService } from "../apiService";
+import {  } from "../../config/url";
+import { URL_SEND_OFFER_PRICE } from "../../config/url";
 
 const login = async (user) => {
   try {
@@ -17,6 +19,15 @@ const login = async (user) => {
   }
 };
 
+const postOfferMade = async (requestBody) => {
+    try{
+        let result = await apiService.post(URL_SEND_OFFER_PRICE,requestBody);
+        return result;
+    }catch(error){
+        return error;
+    }
+}
+
 export const postService = {
-  login,
+  login,postOfferMade
 };

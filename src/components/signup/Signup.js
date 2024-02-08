@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import moominlogo from '../Login/moominlogo.png';
 import './signup.css'
+import { postService } from '../../services/client-api/postService';
 
 const Signup = () => {
 
@@ -29,6 +30,22 @@ const Signup = () => {
             alert("Passwords don't match");
             return;
         };
+
+        const userData = {
+            firstName: Fistname,
+            lastName: Lastname,
+            email: Email,
+            password: password,
+            confirmPassword: confirmPassword,
+            phoneNumber: phoneNumber,
+            city: City,
+            state: State,
+            country: Country,
+            zipCode: ZipCode,
+            userType: userType
+          };
+
+          postService.createUser(userData);
     }
 
     return (

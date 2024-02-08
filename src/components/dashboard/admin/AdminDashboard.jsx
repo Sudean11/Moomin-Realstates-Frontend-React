@@ -4,6 +4,8 @@ import Sidebar from "./Sidebar";
 import Home from "../Home";
 import { useState } from "react";
 import "./AdminDashboard.css"
+import PropertiesTable from "./PropertiesTable";
+import Offers from "../owner/Offers";
 
 const AdminDashboard =()=> {
 

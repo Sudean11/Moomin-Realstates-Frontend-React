@@ -11,7 +11,7 @@ export const DASHBOARD_SIDEBAR_LINKS = [
     {
         key:'offerList',
         label:'OfferList',
-        path:'offerList',
+        path:'offers',
         icon:<FaListUl/>
     },
     {

@@ -7,4 +7,4 @@ const clientDashboard = () => {
   )
 }
 
-export default clientDashboard
+export default clientDashboard;

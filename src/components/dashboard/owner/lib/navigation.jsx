@@ -1,39 +1,30 @@
-import {HiOutlineViewGrid ,HiLogout} from 'react-icons/hi';
-import { FaListUl,FaHistory,FaSave } from 'react-icons/fa';
-
-export const DASHBOARD_SIDEBAR_LINKS = [
+import {HiOutlineViewGrid ,HiMail, HiFolderAdd } from 'react-icons/hi';
+import { FaListUl,FaHistory} from 'react-icons/fa';
+export const OWNER_DASHBOARD_SIDEBAR_LINKS = [
     {
-        key:'clientDashBoard',
-        label:'ClientDashBoard',
-        path:'/client',
+        key:'ownerHome',
+        label:'OwnerHome',
+        path:'/owner-dashboard',
         icon:<HiOutlineViewGrid/>
     },
     {
-        key:'offerList',
-        label:'OfferList',
-        path:'offerList',
+        key:'addProperty',
+        label:'Add Property',
+        path:'addProperty',
+        icon:<HiFolderAdd/>
+    },
+    {
+        key:'offer',
+        label:'Offers',
+        path:'offers',
         icon:<FaListUl/>
     },
+    
     {
-        key:'offerHistory',
-        label:'OfferHistory',
-        path:'offerHistory',
-        icon:<FaHistory/>
-    },
-    {
-        key:'savedList',
-        label:'SavedList',
-        path:'savedList',
-        icon:<FaSave/>
+        key:'userMessage',
+        label:'User Message',
+        path:'userMessage',
+        icon:<HiMail/>
     },
 ]
 
-export const DASHBOARD_SIDEBAR_BOTTOM_LINKS =[
-    {
-        key:'logout',
-        label:'Logout',
-        path:'/',
-        icon:<HiLogout/>
-    }
-
-]

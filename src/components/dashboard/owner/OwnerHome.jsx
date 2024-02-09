@@ -1,7 +1,7 @@
 import React from 'react'
 import { BsFillArchiveFill, BsFillGrid3X3GapFill, BsPeopleFill, BsFillBellFill }
   from 'react-icons/bs'
-import Offers from './Offers'
+import Offers from '../client/Offers'
 
 
 

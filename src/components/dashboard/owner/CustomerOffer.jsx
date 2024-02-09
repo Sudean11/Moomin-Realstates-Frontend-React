@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { fetchService } from "../../../services/client-api/fetchService";
 import { postService } from "../../../services/client-api/postService";
+import { useDispatch,useSelector } from "react-redux";
+import { toggleMessageUserFormVisibility, uiStore } from "../../../features/uiSlice";
+import MessageBox from "./MessageBox";
 
 const CustomerOffers = () => {
     const [listOffers, setListOffers] = useState([]);
     const [reloadData, setReloadData] = useState(true);
-
+    const [offerId, setOfferId] = useState(0);
+    const{isMessageUserFormVisible} = useSelector(uiStore);
+    const dispatch=useDispatch();
     useEffect(() => {
         fetchOfferProperties();
     }, [reloadData]);
@@ -44,6 +49,12 @@ const CustomerOffers = () => {
             console.error("Error accepting offer:", error);
         }
     };
+    const message=(id)=>{
+        setOfferId(id);
+        debugger;
+        dispatch(toggleMessageUserFormVisibility());
+
+    }
 
     return (
         <div>
@@ -81,12 +92,15 @@ const CustomerOffers = () => {
                                         <br/>
                                         <button value={offer.id} onClick={() => handlePropertyReject(offer.id)}>Reject</button></div>
                                     )}
+                                    
                                 </td>
-                                <td> <button>Message</button></td>
+                                <td> <button value={offer.id} onClick={()=>{message(offer.id)}}>Message</button></td>
                             </tr>
                         ))}
                     </tbody>
                 </table>
+                {isMessageUserFormVisible && <MessageBox offerId={offerId} />}
+
             </div>
         </div>
     );

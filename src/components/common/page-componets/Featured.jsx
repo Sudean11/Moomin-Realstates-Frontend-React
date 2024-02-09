@@ -14,7 +14,8 @@ const Featured = () => {
   const fetchFeaturedProperties=async()=>{
     let fetchedProperty = await fetchService.allProperties();
     setFeaturedProperties(fetchedProperty);
-    console.log(fetchedProperty);
+    console.log({featured:fetchedProperty});
+    debugger
   }
   return (
     <div className="pt-10 pb-16">

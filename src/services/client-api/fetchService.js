@@ -8,7 +8,8 @@ import {
   URL_TABLE_PROPERTIES,
   URL_USER_LIST,
   URL_OFFERS_HISTORY,
-  URL_USER_MESSAGE
+  URL_USER_MESSAGE,
+  URL_SAVED_LIST
 } from "../../config/url";
 import { apiService } from "../apiService";
 import { authService } from "./authService";
@@ -24,6 +25,7 @@ const featuredProperties = async () => {
 const allProperties = async () => {
   try {
     let result = await apiService.get(URL_All_PROPERTY);
+    debugger
     return result;
   } catch (error) {
     return error;
@@ -107,7 +109,8 @@ const listOffers = async () => {
 
 const offersHistory = async () => {
     try {
-        let result = await apiService.get(URL_OFFERS_HISTORY);
+   const email= await authService.getEmailFromLocalStorage();
+        let result = await apiService.get(`/api/v1/offer/history?email=${email}`);
         return result;
     } catch (error) {
         return error;
@@ -116,7 +119,17 @@ const offersHistory = async () => {
 
 const usermessage = async () => {
   try {
-    let result = await apiService.get(URL_USER_MESSAGE);
+    const email= await authService.getEmailFromLocalStorage();
+    let result = await apiService.get(`/api/v1/message?email=${email}`);
+    return result;
+  }catch (error) {
+    return error;
+  }
+};
+
+const savedList = async () => {
+  try {
+    let result = await apiService.get(URL_SAVED_LIST);
     return result;
   }catch (error) {
     return error;
@@ -132,6 +145,6 @@ export const fetchService = {
   listOffers,
   filteredProperties,
   propertiesTable,offersTable,offersTableForCustomer,getPropertyDetailsById,
-  offersHistory,usermessage
+  offersHistory,usermessage,userList,savedList
 };
 

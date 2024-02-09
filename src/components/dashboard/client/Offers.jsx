@@ -14,7 +14,6 @@ const Offers = () => {
         console.log(offersProperties);
     }
     const [reloadData, setReloadData] = useState(false);
-    debugger;
 
     const handlePropertyAccept = async (id) => {
 

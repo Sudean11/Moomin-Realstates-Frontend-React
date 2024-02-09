@@ -1,5 +1,5 @@
 import {HiOutlineViewGrid ,HiLogout} from 'react-icons/hi';
-import { FaListUl,FaHistory,FaSave } from 'react-icons/fa';
+import { FaListUl,FaHistory,FaSave, FaHeart } from 'react-icons/fa';
 
 export const DASHBOARD_SIDEBAR_LINKS = [
     {
@@ -10,7 +10,7 @@ export const DASHBOARD_SIDEBAR_LINKS = [
     },
     {
         key:'offerList',
-        label:'OfferList',
+        label:'Offer List',
         path:'offers',
         icon:<FaListUl/>
     },
@@ -22,9 +22,9 @@ export const DASHBOARD_SIDEBAR_LINKS = [
     },
     {
         key:'savedList',
-        label:'SavedList',
+        label:'Favourites',
         path:'savedList',
-        icon:<FaSave/>
+        icon:<FaHeart/>
     },
 ]
 

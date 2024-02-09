@@ -10,7 +10,6 @@ import App from "../App.js";
 import PanelLayout from "../components/dashboard/client/shared/PanelLayout.jsx";
 import ClientDashboard from "../components/dashboard/client/ClientDashboard.jsx";
 
-import Offers from "../components/dashboard/client/Offers.jsx";
 import OfferHistory from "../components/dashboard/client/OfferHistory.jsx";
 import SavedList from "../components/dashboard/client/SavedList.jsx";
 
@@ -22,12 +21,12 @@ import UserMessage from "../components/dashboard/owner/UserMessage.jsx";
 import MessageBox from "../components/dashboard/owner/MessageBox.jsx";
 import OwnerPanelLayout from "../components/dashboard/owner/shared/OwnerPanelLayout.jsx";
 import OwnerHome from "../components/dashboard/owner/OwnerHome.jsx";
+import Offers from "../components/dashboard/client/Offers.jsx";
 const PageRoutes = () => {
   return (
     <>
       <Routes>
         <Route path="/" element={<App />}>
-          <Route path="/messageUser " element={<MessageBox />} />
 
           <Route index element={<Home />} />
           <Route path="/User" element={<Users />} />
@@ -51,11 +50,13 @@ const PageRoutes = () => {
           <Route index element={<ClientDashboard />} />
           <Route path="offerHistory" element={<OfferHistory />} />
           <Route path="savedList" element={<SavedList />} />
-        </Route>
+          <Route path="offers" element={<Offers/>} />
+
+        </Route> 
 
         <Route path="/owner-dashboard" element={<OwnerPanelLayout/>}>
           <Route index element={<OwnerHome />} />
-          <Route path="offers" element={<Offers/>} />
+          <Route path="offerHIstory" element={<SavedList/>} />
           <Route path="addProperty" element={<AddProperty />} />
           <Route path="userMessage" element={<UserMessage />} />
         </Route>

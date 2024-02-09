@@ -92,6 +92,14 @@ const rejectOfferForOwner = async(offerid) => {
       return error;
   }
 }
+const rejectContingencyForOwner = async(id) => {
+  try{
+      let result = await apiService.post(`api/v1/property/${id}/cancel-contingency`);
+      return result;
+  }catch(error){
+      return error;
+  }
+}
 const sendNewProperty = async(reqBody) => {
   try{
  
@@ -111,7 +119,50 @@ const createUser = async (user) => {
   }
 };
 
+const userApprove = async (id) => {
+  try {
+    let result = await apiService.post(`/api/v1/users/${id}/verify`);
+    return result;
+  } catch (error) {
+    return error;
+  }
+};
+
+
+
+const favourtie = async (fav) => {
+  try {
+    let result = await apiService.post(`/api/v1/favourites`, fav);
+    return result;
+  } catch (error) {
+    return error;
+  }
+}
+
+const sendMessageswithOfferIdFromOwner = async (reqBody) => {
+  
+  try {
+    let result = await apiService.post(`/api/v1/message`,reqBody);
+    return result;
+  } catch (error) {
+    return error;
+  }
+};
+
+
 
 export const postService = {
-  login,postOfferMade,getPendingStatus,getPostTableAccept,acceptUserForOwner,acceptOfferForCustomer,rejectUserForOwner,rejectOfferForCustomer,sendNewProperty,createUser,rejectOfferForOwner
+  login,
+  postOfferMade,
+  getPendingStatus,
+  getPostTableAccept,
+  acceptUserForOwner,
+  acceptOfferForCustomer,
+  rejectUserForOwner,
+  rejectOfferForCustomer,
+  sendNewProperty,
+  createUser,
+  rejectOfferForOwner,
+  rejectContingencyForOwner,userApprove,favourtie,
+  sendMessageswithOfferIdFromOwner
 };

@@ -1,17 +1,37 @@
 import React, { useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { toggleMessageUserFormVisibility } from '../../../features/uiSlice';
-import { useNavigate, useParams } from 'react-router-dom';
+import { authService } from '../../../services/client-api/authService';
+import { postService } from '../../../services/client-api/postService';
 
-const MessageBox = () => {
+const MessageBox = ({ offerId }) => {
     const dispatch = useDispatch();
-    const messageRef = useRef(null);
-    const navigate = useNavigate();
+    const [message, setMessage] = useState(''); // Declare state for message
 
-    const sendMessage = async () => {
-      
+    const handleChange = (event) => {
+        // Update the state with the new value of the textarea
+        setMessage(event.target.value);
     };
- 
+
+    const sendMessageswithOfferId = async () => {
+        try {
+            const email = await authService.getEmailFromLocalStorage();
+            const requestBody = {
+                email: email, // Set the email dynamically
+                message: message, // Get the message from the state
+                offerId: offerId, // Set the offer ID dynamically
+            };
+
+            const response = await postService.sendMessageswithOfferIdFromOwner(requestBody);
+        } catch (e) {
+            console.log(e);
+        }
+    };
+
+    const sendMessage = () => {
+        sendMessageswithOfferId();
+        dispatch(toggleMessageUserFormVisibility());
+    };
 
     return (
         <div className="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm flex justify-center items-center">
@@ -19,7 +39,6 @@ const MessageBox = () => {
                 <button onClick={() => dispatch(toggleMessageUserFormVisibility())} className="absolute top-2 right-2 text-gray-600 hover:text-gray-800">
                     X
                 </button>
-               
 
                 <div className="mb-4">
                     <label htmlFor="message" className="block text-gray-600 mb-2">Message:</label>
@@ -27,7 +46,8 @@ const MessageBox = () => {
                         id="message"
                         className="w-full h-32 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
                         placeholder="Enter your message"
-                        ref={messageRef}
+                        value={message} // Set the value of the textarea to the state
+                        onChange={handleChange} // Update the state on change
                     />
                 </div>
 

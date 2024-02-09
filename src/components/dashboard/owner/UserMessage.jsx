@@ -13,7 +13,7 @@ const UserMessage =()=> {
         setmessage(fetchedUserMessage);
         console.log(fetchedUserMessage)
     }
-
+debugger;
     useEffect( ()=> {
         fetchUserMessage();
     }, []);

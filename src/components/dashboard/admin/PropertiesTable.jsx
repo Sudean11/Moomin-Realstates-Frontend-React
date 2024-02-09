@@ -21,7 +21,6 @@ const PropertiesTable = () => {
     },[reloadData])
 
     const handleProperty = async (id) => {
-        debugger;
         try {
             const val = await postService.getPostTableAccept(id);
             console.log(val);
@@ -30,6 +29,18 @@ const PropertiesTable = () => {
             console.error("Error fetching properties:", error);
         }
     }
+    const handlePropertyCancel = async (id) => {
+        try {
+            const val = await postService.rejectContingencyForOwner(id);
+            if (val.data) {
+                setReloadData(prevState => !prevState);
+            } else {
+                alert("There is a pending offer");
+            }
+        } catch (error) {
+            console.error("Error accepting offer:", error);
+        }
+    };
     
 
     return (
@@ -61,6 +72,11 @@ const PropertiesTable = () => {
                                 <td>{property.status}</td>
                                 <td>
                                 <button value={property.id} onClick={(event) => handleProperty(event.target.value)}>Delete </button>
+                                {property.status === 'CONTINGENT' && (
+                                    <div>
+                                        <button value={property.id} onClick={() => handlePropertyCancel(property.id)}>CANCEL</button>
+                                    </div>
+                                )}
                                 </td>
 
                             </tr>

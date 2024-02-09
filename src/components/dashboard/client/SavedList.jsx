@@ -26,7 +26,7 @@ const SavedList = () => {
                 <table className="table-auto border-collapse border border-gray-400 w-full">
                     <thead className="bg-gray-800 text-white">
                         <tr>
-                            <th className="py-2 px-4">Properties</th>
+                            <th className="py-2 px-4">Property ID</th>
                             <th className="py-2 px-4">Location</th>
                             <th className="py-2 px-4">Owner</th>
                             <th className="py-2 px-4">Property Status</th>
@@ -36,9 +36,9 @@ const SavedList = () => {
                         {savedlist.map((property) => (
                             <tr key={property.id} className="border-t border-gray-400">
                                 <td className="py-2 px-4">{property.id}</td>
-                                <td className="py-2 px-4">{property.price}</td>
-                                <td className="py-2 px-4">{property.area}</td>
-                                <td className="py-2 px-4">{property.status}</td>
+                                <td className="py-2 px-4">{property.property.location.city}</td>
+                                <td className="py-2 px-4">{property.property.owner}</td>
+                                <td className="py-2 px-4">{property.property.status}</td>
                             </tr>
                         ))}
                     </tbody>

@@ -35,8 +35,8 @@ debugger;
             <tbody>
               {message.map((user) => (
                 <tr key={user.id} className="border-t border-gray-400">
-                  <td className="py-2 px-4">{user.property.name}</td>
-                  <td className="py-2 px-4">{user.user.email}</td>
+                  <td className="py-2 px-4">{user.email}</td>
+                  <td className="py-2 px-4">{user.message}</td>
                 </tr>
               ))}
             </tbody>

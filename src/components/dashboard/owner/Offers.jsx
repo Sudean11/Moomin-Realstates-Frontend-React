@@ -6,14 +6,15 @@ import { postService } from "../../../services/client-api/postService";
 const Offers = () => {
 
     const [listOffers, setlistOffers] = useState([]);
-    useEffect(() => { fetchOfferProperties() }, [])
+    const [reloadData, setReloadData] = useState(false);
+
+    useEffect(() => { fetchOfferProperties() }, [reloadData])
 
     const fetchOfferProperties = async () => {
         let offersProperties = await fetchService.offersTable();
         setlistOffers(offersProperties);
         console.log(offersProperties);
     }
-    const [reloadData, setReloadData] = useState(false);
     debugger;
 
     const handlePropertyAccept = async (id) => {
@@ -74,8 +75,9 @@ const Offers = () => {
                                     <td className="px-6 py-4">{offer.property?.name}</td>
                                     <td className="px-6 py-4">{offer.offerMessage}</td>
                                     <td className="px-6 py-4">{offer.property?.price}</td>
-                                    <td className="px-6 py-4">{offer.sellerStatus}</td>
-                                    <td className="px-6 py-4">{offer.buyerStatus}</td>
+                                    <td className={`px-6 py-4 ${offer.sellerStatus === 'REJECTED' ? 'text-red-500' : 'text-green-500'}`}>{offer.sellerStatus}</td>
+                                    <td className={`px-6 py-4 ${ offer.buyerStatus === 'REJECTED' ? 'text-red-500' : 'text-green-500'}`}>{offer.buyerStatus}</td>
+
                                     <td className="px-6 py-4">
                                         {offer.sellerStatus === null && (
                                             <div>

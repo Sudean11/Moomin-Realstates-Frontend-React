@@ -84,7 +84,8 @@ const PropertiesTable = () => {
                                     <td>{property.area}</td>
                                     <td>{property.status}</td>
                                     <td>
-                                        <button value={property.id} onClick={(event) => handleProperty(event.target.value)}>Delete </button>
+                                    {property.status != 'PENDING' &&(
+                                        <button value={property.id} onClick={(event) => handleProperty(event.target.value)}>Delete </button>)}
                                         {property.status === 'CONTINGENT' && (
                                             <div>
                                                 <button value={property.id} onClick={() => handlePropertyCancel(property.id)}>CANCEL</button>

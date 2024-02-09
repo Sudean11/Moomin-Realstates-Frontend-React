@@ -3,7 +3,9 @@ import { fetchService } from "../../../services/client-api/fetchService";
 import { postService } from "../../../services/client-api/postService";
 
 
+
 const Users = () => {
+    const [reloadData, setReloadData] = useState(false);
 
     const [userList, setuserList] = useState([]);
 
@@ -15,10 +17,11 @@ const Users = () => {
 
     useEffect(() => {
         fetchlistUsers();
-    }, []);
+    }, [reloadData]);
     const handleUserApprove = async (id) => {
         try {
             const approve = await postService.userApprove(id);
+            setReloadData(true);
         } catch (error) {
             return error;
         }

@@ -66,7 +66,7 @@ catch(e)
     <div className="container mx-auto py-8 px-4 md:flex md:flex-wrap   pt-16 bg-zinc-100 border-2 border-gray-300 rounded-lg " style={{ maxWidth: 1090 }}>
       <div className="flex flex-col">
         <div className="mb-0" style={{ height: 600 }}>
-          <img src={pictures[activeImageIndex]} alt="Property image 1" className="w-full h-full object-fit rounded-lg" />
+          <img src={propertyData.banner} alt="Property image 1" className="w-full h-full object-fit rounded-lg" />
         </div>
         <div className="relative flex item-center pt-7">
           <div id="slider" className='w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth'>
@@ -81,7 +81,7 @@ catch(e)
         <div className="text-2xl font-bold mb-2">${propertyData.price}</div>
         <div className="flex-align-center gap-x-2 text-2xl font-bold mb-4">
           <BiMap />
-          <p>{propertyData.name}</p>
+          <p>{propertyData?"NY": "miami"}</p>
         </div>
         <div className="flex mt-3 gap-x-14">
           <div className="flex-align-center gap-x-3">

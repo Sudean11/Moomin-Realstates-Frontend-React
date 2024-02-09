@@ -19,7 +19,12 @@ export const OWNER_DASHBOARD_SIDEBAR_LINKS = [
         path:'offers',
         icon:<FaListUl/>
     },
-    
+    {
+        key:'propertiesTable',
+        label:'Properties List',
+        path:'propertyList',
+        icon:<FaListUl/>
+    },
     {
         key:'userMessage',
         label:'User Message',

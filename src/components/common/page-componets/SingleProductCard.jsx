@@ -34,7 +34,6 @@ const SingleProductCard = ({id,
       area,
       banner,
     });
-
   }
 
 

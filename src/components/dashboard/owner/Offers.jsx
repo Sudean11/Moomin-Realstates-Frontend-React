@@ -49,48 +49,49 @@ const Offers = () => {
     };
 
     return (
-        <div>
-            <div className='main-title'>
-                <h1 >All Offers</h1>
-            </div>
-            <div className="table table-bordered">
-                <table className="table table-hover ">
-                    <thead class="table-dark ">
-                        <tr>
-                            <th scope="col">User</th>
-                            <th scope="col">Properties</th>
-                            <th scope="col">Message</th>
-                            <th scope="col">Offered Price</th>
-                            <th scope="col">SellerStatus</th>
-                            <th scope="col">BuyerStatus</th>
-                            <th scope="col">Action</th>
-
-                        </tr>
-                    </thead>
-                    <tbody className="table-group-divider">
-                        {listOffers.map((offer) => (
-                            <tr key={offer.id}>
-                                <td>{offer.user?.email}</td>
-                                <td>{offer.property?.name}</td>
-                                <td>{offer.offerMessage}</td>
-                                <td>{offer.property?.price}</td>
-                                <td>{offer.sellerStatus}</td>
-                                <td>{offer.buyerStatus}</td>
-
-                                {/* <td><button value={offer.email} onClick={(event) => handleProperty(event.target.value)}>Accept</button></td> */}
-                                {offer.sellerStatus === null && (
-                                    <div>
-                                        <button value={offer.id} onClickS={() => handlePropertyAccept(offer.id)}>Accept</button>
-                                        <hr />
-                                        <button value={offer.id} onClick={() => handlePropertyReject(offer.id)}>Reject</button>
-                                    </div>
-                                )}
-                             </tr>
-                        ))}
-                    </tbody>
-                </table>
+        <div className="container mx-auto px-4">
+            <div className="bg-white p-4 rounded-lg shadow-lg">
+                <div className="main-title text-2xl font-semibold mb-4">
+                    <h1>All Offers</h1>
+                </div>
+                <div className="overflow-x-auto">
+                    <table className="w-full table-auto border border-gray-200 divide-y divide-gray-200">
+                        <thead className="bg-gray-800 text-white">
+                            <tr>
+                                <th className="px-6 py-3">User</th>
+                                <th className="px-6 py-3">Properties</th>
+                                <th className="px-6 py-3">Message</th>
+                                <th className="px-6 py-3">Offered Price</th>
+                                <th className="px-6 py-3">Seller Status</th>
+                                <th className="px-6 py-3">Buyer Status</th>
+                                <th className="px-6 py-3">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody className="divide-y divide-gray-200">
+                            {listOffers.map((offer) => (
+                                <tr key={offer.id}>
+                                    <td className="px-6 py-4">{offer.user?.email}</td>
+                                    <td className="px-6 py-4">{offer.property?.name}</td>
+                                    <td className="px-6 py-4">{offer.offerMessage}</td>
+                                    <td className="px-6 py-4">{offer.property?.price}</td>
+                                    <td className="px-6 py-4">{offer.sellerStatus}</td>
+                                    <td className="px-6 py-4">{offer.buyerStatus}</td>
+                                    <td className="px-6 py-4">
+                                        {offer.sellerStatus === null && (
+                                            <div>
+                                                <button className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded mr-2 focus:outline-none focus:shadow-outline" onClick={() => handlePropertyAccept(offer.id)}>Accept</button>
+                                                <button className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onClick={() => handlePropertyReject(offer.id)}>Reject</button>
+                                            </div>
+                                        )}
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
+
     )
 
 

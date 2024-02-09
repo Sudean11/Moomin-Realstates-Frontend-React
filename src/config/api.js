@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const API = axios.create({
-    baseURL: 'https://ceee-2a09-bac5-74d2-4e6-00-7d-5b.ngrok-free.app'
+    baseURL: 'https://e9ed-2a09-bac5-74d5-4e6-00-7d-5a.ngrok-free.app'
 })
 
 API.interceptors.request.use(
@@ -16,3 +16,4 @@ API.interceptors.request.use(
         return Promise.reject(error);
     }
 );
+

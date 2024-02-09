@@ -16,15 +16,16 @@ const AddProperty = () => {
   const numberOfRoomsRef = useRef();
   const numberOfBathRoomsRef = useRef();
   const rentAmountRef = useRef();
-  const isRentedRef = useRef();
+ 
   const rentedDateRef = useRef();
   const propertyTypeRef = useRef();
   const homeTypeRef = useRef();
-  const isForSaleRef = useRef();
+ 
   const imageRef = useRef();
 
-  const Submit = async (e) => {
+  const submitNewProperty = async (e) => {
     e.preventDefault();
+    debugger;
     const auth = await authService.getEmailFromLocalStorage();
     const formData = new FormData();
 
@@ -40,7 +41,6 @@ const AddProperty = () => {
     formData.append("bedroom", parseInt(numberOfRoomsRef.current.value));
     formData.append("bathroom", parseInt(numberOfBathRoomsRef.current.value));
     formData.append("price", parseInt(rentAmountRef.current.value));
-    formData.append("status", isRentedRef.current.value);
     formData.append("propertyTypes", propertyTypeRef.current.value);
     formData.append("owner", null); // Adjust as needed based on your application logic
     formData.append("featured", false); // Adjust as needed based on your application logic
@@ -185,7 +185,7 @@ const AddProperty = () => {
         </div>
       </div>
       <div className="flex justify-center">
-        <button onClick={Submit} type="submit" className="btn btn-primary">
+        <button onClick={submitNewProperty}  className="btn btn-primary">
           Submit
         </button>
       </div>

@@ -3,7 +3,7 @@ import { fetchService } from "../../../services/client-api/fetchService";
 
 import { property } from "lodash";
 import { postService } from "../../../services/client-api/postService";
-import Offers from "../owner/Offers";
+import Offers from "../client/Offers";
 
 const PropertiesTable = () => {
 

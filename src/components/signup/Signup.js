@@ -1,15 +1,8 @@
-<<<<<<< HEAD
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import moominlogo from '../Login/moominlogo.png';
 import './signup.css'
 import { postService } from '../../services/client-api/postService';
-=======
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import moominlogo from "../Login/moominlogo.png";
-import "./signup.css";
->>>>>>> 4eb76af8075e656a6d0b15dc985b4540f34ba4fa
 
 const Signup = () => {
   const [firstName, setFirstName] = useState("");
@@ -41,16 +34,16 @@ const Signup = () => {
         };
 
         const userData = {
-            firstName: Fistname,
-            lastName: Lastname,
-            email: Email,
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
             password: password,
             confirmPassword: confirmPassword,
             phoneNumber: phoneNumber,
-            city: City,
-            state: State,
-            country: Country,
-            zipCode: ZipCode,
+            city: city,
+            state: state,
+            country: country,
+            zipCode: zipCode,
             userType: userType
           };
 

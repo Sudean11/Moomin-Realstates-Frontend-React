@@ -1,6 +1,5 @@
 import {
   URL_FEATURED_PROPERTY,
-  URL_GET_OFFERS_FOR_CUSTOMER,
   URL_All_PROPERTY,
   URL_LATEST_PROPERTY,
   URL_GET_OFFERS,
@@ -129,7 +128,8 @@ const usermessage = async () => {
 
 const savedList = async () => {
   try {
-    let result = await apiService.get(URL_SAVED_LIST);
+    const email= await authService.getEmailFromLocalStorage();
+    let result = await apiService.get(`/api/v1/favourites?email=${email}`);
     return result;
   }catch (error) {
     return error;

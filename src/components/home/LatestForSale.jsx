@@ -1,6 +1,5 @@
 import { BiBed, BiMap, BiMapAlt, BiTab } from "react-icons/bi";
-import { Link } from "react-router-dom";
-import { property } from "../../data/dummyData";
+import { Link, useNavigate } from "react-router-dom";
 import CardHoverIcons from "../common/page-componets/CardHoverIcons";
 import { useState,useEffect } from "react";
 import { fetchService } from "../../services/client-api/fetchService";
@@ -8,9 +7,31 @@ import { fetchService } from "../../services/client-api/fetchService";
 
 const LatestForSale = () => {
   const [featuredProperties, setFeaturedProperties] = useState([]);
+  const navigate = useNavigate();
+
+  const detailsButtonHandler = (id) => {
+    console.log("details button handler");
+    console.log(id,"ID");
+    navigate(`/propertyDetail/${id}`);
+    //  {
+    //   id,
+    //   name,
+    //   location,
+    //   price,
+    //   distance,
+    //   description,
+    //   bedroom,
+    //   bathroom,
+    //   area,
+    //   banner,
+    // });
+  }
+  
+  
   useEffect(()=>{
     fetchFeaturedProperties();
   },[])
+  debugger;
 
   const fetchFeaturedProperties=async()=>{
     let fetchedProperty = await fetchService.featuredProperties();
@@ -28,6 +49,7 @@ const LatestForSale = () => {
           .slice(0, 6)
           ?.map(
             ({
+              id,
               name,
               location,
               price,
@@ -100,7 +122,7 @@ const LatestForSale = () => {
                       <h1 className="text-lg font-semibold text-primary">
                         ${price}
                       </h1>
-                      <button className="btn btn-secondary">details</button>
+                      <button className="btn btn-secondary" value={id} onClick={()=>{detailsButtonHandler(id)}}>details</button>
                     </div>
                   </div>
                 </div>
